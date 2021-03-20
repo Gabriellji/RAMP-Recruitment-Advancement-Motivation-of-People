@@ -18,7 +18,7 @@ export const Navbar = () => (
       <hr />
       <LinkElem to="/my_application">MY APPLICATION</LinkElem>
       <hr />
-      <LinkElem to="/tech">TECH TASK</LinkElem>
+      <LinkElem to="/tech">CHALLENGE</LinkElem>
       <hr />
     </StyledNav>
     <StyledNavFooter>
