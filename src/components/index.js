@@ -1,4 +1,4 @@
-import Navbar from './Navbar.jsx'
+import Navbar from './Navbar/index.jsx'
 
 export {
     Navbar

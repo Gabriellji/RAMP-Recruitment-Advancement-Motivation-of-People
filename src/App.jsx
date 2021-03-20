@@ -4,6 +4,8 @@ import { Context } from "./context";
 import {Navbar} from "./components";
 import {Home, Login} from './pages'
 
+import {PageWrapper, ContentWrapper} from './style'
+
 const App = () => {
   const { isLogged } = useContext(Context);
 
@@ -12,12 +14,13 @@ const App = () => {
   }, []);
 
   return (
-    <main>
+    <PageWrapper>
       {!isLogged ? (
         <Login/>
       ) : (
         <>
           <Navbar />
+          <ContentWrapper>
           <Switch>
             <Route exact path="/" render={() => <Home />} />
             <Route exact path="/home" render={() => <Home />} />
@@ -29,9 +32,10 @@ const App = () => {
             />
             <Route path="/tech" render={() => <p>tech</p>} />
           </Switch>
+          </ContentWrapper>
         </>
       )}
-    </main>
+    </PageWrapper>
   );
 };
 
