@@ -28,11 +28,12 @@ Input.defaultProps = {
   type: 'text',
   placeholder: '',
   id: '',
+  onChange: () => {},
 };
 
 Input.propTypes = {
   placeholder: PropTypes.string,
-  onChange: PropTypes.func.isRequired,
+  onChange: PropTypes.func,
   type: PropTypes.string,
   id: PropTypes.string,
 };

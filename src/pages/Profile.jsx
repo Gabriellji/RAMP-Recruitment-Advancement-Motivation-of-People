@@ -5,24 +5,45 @@ import {
 } from '../components/atoms';
 import { ProfileForm, LabelWrapper } from './style';
 
-export const Home = () => {
+export const Profile = () => {
   // context
   const { token, logout } = useContext(Context);
+  // const
+  const initialState = {
+    name: '',
+    surname: '',
+    email: '',
+    phone: '',
+    date: '',
+    country: '',
+    cv: '',
+    linkedin: '',
+    github: '',
+    website: '',
+  };
+  const info = [
+    { name: 'First name', key: 'name' },
+    { name: 'Second name', key: 'surname' },
+    { name: 'Email', key: 'email' },
+    { name: 'Phone Number', key: 'phone' },
+    { name: 'Date of birth', key: 'date' },
+    { name: 'Nationality', key: 'country' },
+    { name: 'Resume link', key: 'cv' },
+    { name: 'Linkedin', key: 'linkedin' },
+    { name: 'Github', key: 'github' },
+    { name: 'Personal website', key: 'website' },
+  ];
   // state
-  const [name, setName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [email, setEmail] = useState('');
-  const [phone, setPhone] = useState('');
-  const [date, setData] = useState(null);
-  const [nationality, setNationality] = useState('');
-  const [cv, setCv] = useState('');
-  const [linkedin, setLinkedin] = useState('');
-  const [github, setGithub] = useState('');
-  const [website, setWebsite] = useState('');
+  const [user, setUser] = useState(initialState);
   // functions
+  const handleOnChange = (e) => {
+    const newUser = user;
+    newUser[e.target.id] = e.target.value;
+    setUser(newUser);
+    console.log('...', newUser);
+  };
   // useEffect
   useEffect(() => {
-    console.log('..', token);
     fetch('http://localhost:5000/auth', {
       method: 'GET',
       headers: new Headers({
@@ -34,7 +55,7 @@ export const Home = () => {
         if (res.status !== 200) {
           logout();
         } else {
-          res.json().then((data) => setEmail(data.email));
+          res.json().then((data) => setUser({ ...user, email: data.email }));
         }
       });
   }, []);
@@ -44,8 +65,22 @@ export const Home = () => {
       <Title
         text="My Profile"
       />
+      <ProfileForm onChange={(e) => handleOnChange(e)}>
+        {info.map((option) => (
+          <LabelWrapper>
+            <Text
+              text={option.name}
+            />
+            <Input
+              placeholder={option.name}
+              value={user[option.key]}
+              id={option.key}
+            />
+          </LabelWrapper>
+        ))}
+      </ProfileForm>
     </>
   );
 };
 
-export default Home;
+export default Profile;
