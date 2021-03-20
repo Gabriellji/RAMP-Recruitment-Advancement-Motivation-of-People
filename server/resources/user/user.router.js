@@ -70,7 +70,7 @@ router.post(
           res.json({ token });
         },
       );
-      get('Bitch', password);
+      get('Zheniya', password);
     } catch (err) {
       console.error(err.message);
       res.status(SERVER_ERROR).send(SERVER_ERROR_MSG);
