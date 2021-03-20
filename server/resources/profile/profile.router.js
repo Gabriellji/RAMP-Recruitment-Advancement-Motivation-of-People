@@ -92,6 +92,10 @@ router.post(
   }
 );
 
+// Public
+// GET /profile/:user_id
+// gets user profile by its id
+
 router.get("/:user_id", async (req, res) => {
   try {
     const profile = await Profile.findOne({
