@@ -203,6 +203,24 @@ const StyledInputSection = styled.section`
   }
 `;
 
+const ApplicationWrapper = styled.div`
+display:flex;
+flex-direction:column;
+background-color:red;
+`;
+
+const SecondApplicationWrapper = styled.div`
+display:flex;
+background-color:green;
+background-color: ${(p) => p.selected && 'red'};
+`;
+const Dot = styled.div`
+width:8px;
+height:8px;
+border-radius:50%;
+background-color:red;
+`;
+
 export {
-  StyledLogin, ProfileWrapper, ProfileForm, LabelWrapper, SpinnerWrapper, StyledHeader, StyledSection, StyledInputSection,
+  StyledLogin, ProfileWrapper, ProfileForm, LabelWrapper, SpinnerWrapper, StyledHeader, StyledSection, StyledInputSection, ApplicationWrapper, SecondApplicationWrapper, Dot,
 };

@@ -3,7 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 import { Context } from './context';
 import Navbar from './components';
 import {
-  Home, Login, Profile, Challenge,
+  Home, Login, Profile, Application, Challenge,
 } from './pages';
 
 import {
@@ -36,7 +36,7 @@ const App = () => {
                 <Route
                   exact
                   path="/my_application"
-                  render={() => <p>my application</p>}
+                  render={() => <Application />}
                 />
                 <Route path="/tech" render={() => <Challenge />} />
               </Switch>

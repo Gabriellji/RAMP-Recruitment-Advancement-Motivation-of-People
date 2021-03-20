@@ -10,7 +10,7 @@ import {
 
 export const Profile = () => {
   // context
-  const { token, logout } = useContext(Context);
+  const { token } = useContext(Context);
 
   // const
   const initialState = {
@@ -24,7 +24,6 @@ export const Profile = () => {
     github: '',
     website: '',
   };
-
   const info = [
     { name: 'First name', key: 'name' },
     { name: 'Second name', key: 'surname' },
@@ -38,17 +37,15 @@ export const Profile = () => {
   ];
 
   // state
-
   const [user, setUser] = useState(initialState);
   const [loaded, setLoaded] = useState(false);
   const [change, setChange] = useState(false);
   const [userId, setUserId] = useState('');
   const [email, setEmail] = useState('');
-  const [username, setUsername] = useState('');
+  const [username, setUsername] = useState('default');
   const [error, setError] = useState(false);
 
   // functions
-
   const handleOnChange = (e) => {
     setError(false);
     const newUser = user;
@@ -57,6 +54,7 @@ export const Profile = () => {
   };
 
   const handleSubmit = async (e) => {
+    console.log('............dsf...', username);
     e.preventDefault();
     await fetch('http://localhost:5000/profile', {
       method: 'POST',
@@ -68,19 +66,28 @@ export const Profile = () => {
     })
       .then((res) => {
         if (res.status !== 201) {
-          // logout();
           setError(true);
         } else {
           setChange(false);
+          fetch('http://localhost:5000/status/', {
+            method: 'POST',
+            headers: new Headers({
+              'x-auth-token': token,
+              'Content-Type': 'application/json',
+            }),
+            body: JSON.stringify({
+              status: 'TI_TO_ORGANIZE',
+            }),
+          });
+          setLoaded(true);
         }
       });
-    // setChange(false);
   };
 
   // useEffect
 
   useEffect(async () => {
-    if (logout && token) {
+    if (token) {
       const id = '';
       await fetch('http://localhost:5000/auth', {
         method: 'GET',
@@ -90,9 +97,7 @@ export const Profile = () => {
         }),
       })
         .then((res) => {
-          if (res.status !== 200) {
-            // logout();
-          } else {
+          if (res.status === 200) {
             res.json().then((data) => {
               // eslint-disable-next-line no-underscore-dangle
               setUserId(data._id);
@@ -101,7 +106,7 @@ export const Profile = () => {
           }
         });
     }
-  }, [logout, token]);
+  }, [token]);
 
   useEffect(async () => {
     await fetch(`http://localhost:5000/profile/${userId}`, {
@@ -112,11 +117,11 @@ export const Profile = () => {
       }),
     })
       .then((res) => {
-        if (res.status !== 200) {
-          // logout();
-        } else {
+        if (res.status === 200) {
           res.json().then((data) => {
-            setUsername(data.username);
+            let myUserName = '';
+            myUserName = data.userName ? data.username : 'user';
+            setUsername(myUserName);
             setUser({
               ...user,
               country: data.country,
