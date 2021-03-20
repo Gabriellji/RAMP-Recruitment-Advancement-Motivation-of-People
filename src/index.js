@@ -1,9 +1,10 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import App from './App.jsx'
-import Provider from './context'
-import { GlobalStyle } from "./styles/GlobalStyle";
-import { BrowserRouter as Router } from "react-router-dom";
+/* eslint-disable react/jsx-filename-extension */
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
+import App from './App';
+import Provider from './context';
+import GlobalStyle from './styles/GlobalStyle';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -14,5 +15,5 @@ ReactDOM.render(
       </Provider>
     </Router>
   </React.StrictMode>,
-  document.getElementById("root")
+  document.getElementById('root'),
 );

@@ -1,7 +1,9 @@
-import Home from './Home.jsx'
-import Login from './Login.jsx'
+import Home from './Home';
+import Login from './Login';
+import Profile from './Profile';
 
 export {
-    Home,
-    Login
-}
+  Home,
+  Login,
+  Profile,
+};
