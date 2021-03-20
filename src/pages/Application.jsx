@@ -7,14 +7,11 @@ import { ApplicationWrapper, SecondApplicationWrapper, Dot } from './style';
 // initial data
 const initialData = [
   'Pass first selection',
-  'Tech interview to organize',
-  'Tech interview organized',
-  'Tech interview passed',
-  'tech task assigned',
-  'Tech task started',
-  'Tech task completed',
-  'Tech task passed',
-  'You need to sign a contract now',
+  'Motivational Interview',
+  'Tech Challenge',
+  'Tech Interview',
+  'Contract Proposal',
+  'Contract Accepted - Welcome on Board!',
 ];
 
 export const Application = () => {
@@ -35,31 +32,31 @@ export const Application = () => {
       setLength(1);
       break;
     case 'TI_TO_ORGANIZE':
-      setLength(2);
+      setLength(1);
       break;
     case 'TI_ORGANIZED':
-      setLength(3);
+      setLength(2);
       break;
     case 'TI_FINISHED':
-      setLength(3);
-      break;
-    case 'TI_PASSED':
       setLength(4);
       break;
+    case 'TI_PASSED':
+      setLength(5);
+      break;
     case 'TT_ASSIGNED':
-      setLength(5); /* here */
+      setLength(3);
       break;
     case 'TT_COMPLETED':
-      setLength(5);
+      setLength(3);
       break;
     case 'TT_NOT_PASSED':
-      setLength(5);
+      setLength(3);
       break;
     case 'PASSED':
-      setLength(1);
+      setLength(5);
       break;
     case 'NOT_PASSED':
-      setLength(1);
+      setLength(4);
       break;
     default: setLength(1);
       break;
