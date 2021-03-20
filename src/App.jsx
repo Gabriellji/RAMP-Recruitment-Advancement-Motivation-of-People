@@ -2,7 +2,9 @@ import React, { useContext, useEffect } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { Context } from './context';
 import Navbar from './components';
-import { Home, Login, Profile } from './pages';
+import {
+  Home, Login, Profile, Application,
+} from './pages';
 
 import {
   PageWrapper, StyledBgVideo, MainWrapper, ContentWrapper,
@@ -34,7 +36,7 @@ const App = () => {
                 <Route
                   exact
                   path="/my_application"
-                  render={() => <p>my application</p>}
+                  render={() => <Application />}
                 />
                 <Route path="/tech" render={() => <p>tech</p>} />
               </Switch>

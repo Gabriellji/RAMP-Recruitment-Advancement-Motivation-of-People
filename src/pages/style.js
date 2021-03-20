@@ -120,6 +120,22 @@ const LabelWrapper = styled.div`
   }
 `;
 
+const ApplicationWrapper = styled.div`
+display:flex;
+flex-direction:column;
+background-color:red
+`;
+const SecondApplicationWrapper = styled.div`
+display:flex;
+background-color:green
+`;
+const Dot = styled.div`
+width:8px;
+height:8px;
+border-radius:50%;
+background-color:red
+`;
+
 export {
-  StyledLogin, ProfileWrapper, ProfileForm, LabelWrapper,
+  StyledLogin, ProfileWrapper, ProfileForm, LabelWrapper, ApplicationWrapper, SecondApplicationWrapper, Dot,
 };

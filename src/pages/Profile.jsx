@@ -8,7 +8,7 @@ import { ProfileWrapper, ProfileForm, LabelWrapper } from './style';
 
 export const Profile = () => {
   // context
-  const { token, logout } = useContext(Context);
+  const { token } = useContext(Context);
 
   // const
   const initialState = {
@@ -73,7 +73,7 @@ export const Profile = () => {
   // useEffect
 
   useEffect(async () => {
-    if (logout && token) {
+    if (token) {
       const id = '';
       await fetch('http://localhost:5000/auth', {
         method: 'GET',
@@ -92,7 +92,7 @@ export const Profile = () => {
           }
         });
     }
-  }, [logout, token]);
+  }, [token]);
 
   useEffect(async () => {
     await fetch(`http://localhost:5000/profile/${userId}`, {
