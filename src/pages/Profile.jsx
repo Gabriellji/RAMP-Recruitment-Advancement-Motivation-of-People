@@ -2,9 +2,11 @@ import React, { useState, useContext, useEffect } from 'react';
 import moment from 'moment';
 import { Context } from '../context';
 import {
-  Title, Input, Button, Text,
+  Title, Input, Button, Text, Spinner,
 } from '../components/atoms';
-import { ProfileWrapper, ProfileForm, LabelWrapper } from './style';
+import {
+  ProfileWrapper, ProfileForm, LabelWrapper, SpinnerWrapper,
+} from './style';
 
 export const Profile = () => {
   // context
@@ -187,7 +189,11 @@ export const Profile = () => {
               )}
           </ProfileWrapper>
         )
-        : <p>spinner</p>}
+        : (
+          <SpinnerWrapper>
+            <Spinner />
+          </SpinnerWrapper>
+        )}
     </>
   );
 };

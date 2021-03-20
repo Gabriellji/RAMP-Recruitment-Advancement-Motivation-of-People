@@ -124,6 +124,14 @@ const LabelWrapper = styled.div`
   }
 `;
 
+const SpinnerWrapper = styled.section`
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
 export {
-  StyledLogin, ProfileWrapper, ProfileForm, LabelWrapper,
+  StyledLogin, ProfileWrapper, ProfileForm, LabelWrapper, SpinnerWrapper,
 };
