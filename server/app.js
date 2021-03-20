@@ -4,6 +4,7 @@ const app = express();
 const cors = require("cors");
 const userRouter = require("./resources/user/user.router");
 const authRouter = require("./resources/user/auth.router");
+const profileRouter = require("./resources/profile/profile.router");
 
 app.use(cors());
 
@@ -17,7 +18,8 @@ app.use("/", (req, res, next) => {
   next();
 });
 
-app.use('/registration', userRouter)
-app.use('/auth', authRouter)
+app.use("/registration", userRouter);
+app.use("/auth", authRouter);
+app.use("/profile", profileRouter);
 
 module.exports = app;
