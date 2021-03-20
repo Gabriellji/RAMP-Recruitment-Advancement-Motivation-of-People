@@ -1,27 +1,28 @@
-const express = require("express");
+const express = require('express');
+
 const router = express.Router();
-const auth = require("../../middleware/auth");
-const jwt = require("jsonwebtoken");
-const bcrypt = require("bcryptjs");
-const { check, validationResult } = require("express-validator");
+const jwt = require('jsonwebtoken');
+const bcrypt = require('bcryptjs');
+const { check, validationResult } = require('express-validator');
+const auth = require('../../middleware/auth');
 
 const {
   SERVER_ERROR,
   BAD_REQUEST,
   UNAUTHORIZED,
-} = require("../../constants/httpCodes");
+} = require('../../constants/httpCodes');
 const {
   SERVER_ERROR_MSG,
   BAD_REQUEST_MSG,
-} = require("../../constants/errorMessages");
+} = require('../../constants/errorMessages');
 
-const User = require("./user.model");
+const User = require('./user.model');
 
 // GET /auth
 // gets auth user
-router.get("/", auth, async (req, res) => {
+router.get('/', auth, async (req, res) => {
   try {
-    const user = await User.findById(req.user.id).select("-password");
+    const user = await User.findById(req.user.id).select('-password');
     res.json(user);
   } catch (err) {
     console.error(err.message);
@@ -32,10 +33,10 @@ router.get("/", auth, async (req, res) => {
 // POST /auth
 // log in
 router.post(
-  "/",
+  '/',
   [
-    check("email", "Please include a valid email").isEmail(),
-    check("password", "Password is required").exists(),
+    check('email', 'Please include a valid email').isEmail(),
+    check('password', 'Password is required').exists(),
   ],
   async (req, res) => {
     const errors = validationResult(req);
@@ -46,7 +47,7 @@ router.post(
     const { email, password } = req.body;
 
     try {
-      let user = await User.findOne({ email });
+      const user = await User.findOne({ email });
 
       if (!user) {
         return res
@@ -75,13 +76,13 @@ router.post(
         (err, token) => {
           if (err) throw err;
           res.json({ token });
-        }
+        },
       );
     } catch (err) {
       console.error(err.message);
       res.status(SERVER_ERROR).send(SERVER_ERROR_MSG);
     }
-  }
+  },
 );
 
 module.exports = router;
