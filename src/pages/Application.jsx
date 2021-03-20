@@ -30,45 +30,39 @@ export const Application = () => {
 
   // func
   const handleLength = (sta) => {
-    console.log('........', length);
-    let test = '';
-    // console.log('....status', sta);
-    console.log('........status', sta);
     switch (sta) {
     case '':
-      test = 3;
+      setLength(1);
       break;
     case 'TI_TO_ORGANIZE':
-      test = 2;
+      setLength(1);
       break;
     case 'TI_ORGANIZED':
-      test = 1;
+      setLength(2);
       break;
     case 'TI_FINISHED':
-      test = 1;
+      setLength(2);
       break;
     case 'TI_PASSED':
-      test = 1;
+      setLength(3);
       break;
     case 'TT_ASSIGNED':
-      test = 1;
+      setLength(4);
       break;
     case 'TT_COMPLETED':
-      test = 1;
-      break;
-    case 'TT_PASSED':
-      test = 1;
+      setLength(5);
       break;
     case 'TT_NOT_PASSED':
-      test = 1;
+      setLength(5);
       break;
     case 'PASSED':
-      test = 1;
+      setLength(1);
       break;
     case 'NOT_PASSED':
-      test = 1;
+      setLength(1);
       break;
-    default: test = 0;
+    default: setLength(1);
+      break;
     }
   };
   // useEffect
@@ -94,7 +88,7 @@ export const Application = () => {
   }, [token]);
 
   useEffect(() => {
-    console.log('.......', length);
+    console.log('.......length', length);
   }, [length]);
 
   useEffect(async () => {
