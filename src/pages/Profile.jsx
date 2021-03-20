@@ -11,7 +11,6 @@ export const Profile = () => {
   const { token, logout } = useContext(Context);
 
   // const
-
   const initialState = {
     name: '',
     surname: '',
@@ -23,7 +22,6 @@ export const Profile = () => {
     github: '',
     website: '',
   };
-
   const info = [
     { name: 'First name', key: 'name' },
     { name: 'Second name', key: 'surname' },
@@ -37,7 +35,6 @@ export const Profile = () => {
   ];
 
   // state
-
   const [user, setUser] = useState(initialState);
   const [loaded, setLoaded] = useState(false);
   const [change, setChange] = useState(false);
@@ -47,7 +44,6 @@ export const Profile = () => {
   const [error, setError] = useState(false);
 
   // functions
-
   const handleOnChange = (e) => {
     setError(false);
     const newUser = user;
@@ -67,13 +63,11 @@ export const Profile = () => {
     })
       .then((res) => {
         if (res.status !== 201) {
-          // logout();
           setError(true);
         } else {
           setChange(false);
         }
       });
-    // setChange(false);
   };
 
   // useEffect
@@ -89,9 +83,7 @@ export const Profile = () => {
         }),
       })
         .then((res) => {
-          if (res.status !== 200) {
-            // logout();
-          } else {
+          if (res.status === 200) {
             res.json().then((data) => {
               // eslint-disable-next-line no-underscore-dangle
               setUserId(data._id);
@@ -111,9 +103,7 @@ export const Profile = () => {
       }),
     })
       .then((res) => {
-        if (res.status !== 200) {
-          // logout();
-        } else {
+        if (res.status === 200) {
           res.json().then((data) => {
             setUsername(data.username);
             setUser({
