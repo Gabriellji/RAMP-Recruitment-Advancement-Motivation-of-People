@@ -78,6 +78,9 @@ export const Profile = () => {
             />
           </LabelWrapper>
         ))}
+        <Button
+          text="Edit profile"
+        />
       </ProfileForm>
     </>
   );
