@@ -1,0 +1,10 @@
+module.exports = {
+  BAD_REQUEST: 400,
+  SERVER_ERROR: 500,
+  NOT_FOUND: 404,
+  CREATED: 201,
+  OK: 200,
+  NO_CONTENT: 204,
+  I_AM_A_TEAPOT: 418,
+  UNAUTHORIZED: 401
+};

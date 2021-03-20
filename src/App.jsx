@@ -4,7 +4,9 @@ import { Context } from './context';
 import Navbar from './components';
 import { Home, Login, Profile } from './pages';
 
-import { PageWrapper, StyledBgVideo, ContentWrapper } from './style';
+import {
+  PageWrapper, StyledBgVideo, MainWrapper, ContentWrapper,
+} from './style';
 
 import bgVideo from './Video/Particle - 5187.mp4';
 
@@ -24,11 +26,9 @@ const App = () => {
         {!isLogged ? (
           <Login />
         ) : (
-          <>
-            <Navbar />
+          <MainWrapper>
             <ContentWrapper>
               <Switch>
-                <Route exact path="/" render={() => <Home />} />
                 <Route exact path="/home" render={() => <Home />} />
                 <Route exact path="/profile" render={() => <Profile />} />
                 <Route
@@ -39,7 +39,8 @@ const App = () => {
                 <Route path="/tech" render={() => <p>tech</p>} />
               </Switch>
             </ContentWrapper>
-          </>
+            <Navbar />
+          </MainWrapper>
         )}
       </PageWrapper>
     </>
