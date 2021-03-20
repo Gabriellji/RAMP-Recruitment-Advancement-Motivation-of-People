@@ -75,15 +75,14 @@ export const Application = () => {
           'x-auth-token': token,
           'Content-Type': 'application/json',
         }),
-      })
-        .then((res) => {
-          if (res.status === 200) {
-            res.json().then((data) => {
-              // eslint-disable-next-line no-underscore-dangle
-              setUserId(data._id);
-            });
-          }
-        });
+      }).then((res) => {
+        if (res.status === 200) {
+          res.json().then((data) => {
+            // eslint-disable-next-line no-underscore-dangle
+            setUserId(data._id);
+          });
+        }
+      });
     }
   }, [token]);
 
@@ -98,14 +97,13 @@ export const Application = () => {
         'x-auth-token': token,
         'Content-Type': 'application/json',
       }),
-    })
-      .then((res) => {
-        if (res.status === 200) {
-          res.json().then((data) => {
-            setStatus(data.status);
-          });
-        }
-      });
+    }).then((res) => {
+      if (res.status === 200) {
+        res.json().then((data) => {
+          setStatus(data.status);
+        });
+      }
+    });
     setLoaded(true);
   }, [userId]);
   useEffect(() => {
@@ -113,22 +111,18 @@ export const Application = () => {
   }, [status]);
   return (
     <ApplicationWrapper>
-      { loaded
-        ? (
-          <>
-            {dataToDisplay.map((topass, index) => (
-              <SecondApplicationWrapper
-                selected={index < length}
-              >
-                <Dot />
-                <Text
-                  text={topass}
-                />
-              </SecondApplicationWrapper>
-            ))}
-          </>
-        )
-        : <p>spinner</p>}
+      {loaded ? (
+        <>
+          {dataToDisplay.map((topass, index) => (
+            <SecondApplicationWrapper selected={index < length}>
+              <Dot />
+              <Text text={topass} />
+            </SecondApplicationWrapper>
+          ))}
+        </>
+      ) : (
+        <p>spinner</p>
+      )}
     </ApplicationWrapper>
   );
 };
