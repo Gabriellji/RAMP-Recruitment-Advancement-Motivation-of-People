@@ -5,6 +5,7 @@ const cors = require("cors");
 const userRouter = require("./resources/user/user.router");
 const authRouter = require("./resources/user/auth.router");
 const profileRouter = require("./resources/profile/profile.router");
+const statusRouter = require("./resources/status/status.router");
 
 app.use(cors());
 
@@ -21,5 +22,6 @@ app.use("/", (req, res, next) => {
 app.use("/registration", userRouter);
 app.use("/auth", authRouter);
 app.use("/profile", profileRouter);
+app.use("/status", statusRouter);
 
 module.exports = app;
