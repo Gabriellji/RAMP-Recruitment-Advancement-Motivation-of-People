@@ -1,7 +1,8 @@
-const { PORT } = require("./common/config");
-const app = require("./app");
+require('dotenv').config();
+const { PORT } = require('./common/config');
+const app = require('./app');
 
-const { connect } = require("./db/db.client");
+const { connect } = require('./db/db.client');
 
 connect(() => {
   app.listen(PORT, (err) => {

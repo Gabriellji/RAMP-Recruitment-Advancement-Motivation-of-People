@@ -35,6 +35,7 @@ const StyledLogin = styled.form`
     }
 
     input {
+      box-shadow: inset 3px 3px 5px 0px rgba(100, 100, 100, 0.8);
       ::placeholder {
         color: ${theme.colors.grey};
       }
@@ -45,6 +46,7 @@ const StyledLogin = styled.form`
       background-color: ${theme.colors.light};
       cursor: pointer;
       transition: all 500ms;
+      box-shadow: 3px 3px 5px 0px rgba(100, 100, 100, 0.8);
 
       :hover{
         color: ${theme.colors.light};
@@ -78,6 +80,7 @@ const ProfileWrapper = styled.section`
   }
 
   input {
+    box-shadow: inset 3px 3px 5px 0px rgba(100, 100, 100, 0.8);
     ::placeholder {
       color: ${theme.colors.grey};
     }
@@ -88,6 +91,7 @@ const ProfileWrapper = styled.section`
     background-color: ${theme.colors.light};
     cursor: pointer;
     transition: all 500ms;
+    box-shadow: 3px 3px 5px 0px rgba(100, 100, 100, 0.8);
 
     :hover{
       color: ${theme.colors.light};
@@ -120,11 +124,91 @@ const LabelWrapper = styled.div`
   }
 `;
 
+const SpinnerWrapper = styled.section`
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const StyledHeader = styled.header`
+  width: 100%;
+  padding: ${theme.spacer.double};
+  
+  p {
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+  }
+`;
+
+const StyledSection = styled.section`
+  width: 100%;
+  height: 80%;
+  padding: ${theme.spacer.double};
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  
+  p {
+    font-size: 18px;
+    margin-bottom: ${theme.spacer.double};
+  }
+
+  ul {
+    list-style-type: square;
+
+    li {
+      margin-bottom: ${theme.spacer.single};
+    }
+  }
+`;
+
+const StyledInputSection = styled.section`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: ${theme.spacer.double};
+
+  input, button {
+    font-size: 18px;
+    line-height: 24px;
+    border-radius: ${theme.spacer.single};
+    border-color: ${theme.colors.purple};
+    padding: ${theme.spacer.two};
+    width: 100%;
+    text-align: center;
+  }
+
+  input {
+    box-shadow: inset 3px 3px 5px 0px rgba(100, 100, 100, 0.8);
+    ::placeholder {
+      color: ${theme.colors.grey};
+    }
+  }
+
+  button {
+    color: ${theme.colors.purple};
+    background-color: ${theme.colors.light};
+    cursor: pointer;
+    transition: all 500ms;
+    box-shadow: 3px 3px 5px 0px rgba(100, 100, 100, 0.8);
+
+    :hover{
+      color: ${theme.colors.light};
+      background-color: ${theme.colors.purple};
+      border-color: ${theme.colors.light};
+    }
+  }
+`;
+
 const ApplicationWrapper = styled.div`
 display:flex;
 flex-direction:column;
-background-color:red
+background-color:red;
 `;
+
 const SecondApplicationWrapper = styled.div`
 display:flex;
 background-color:green;
@@ -134,9 +218,9 @@ const Dot = styled.div`
 width:8px;
 height:8px;
 border-radius:50%;
-background-color:red
+background-color:red;
 `;
 
 export {
-  StyledLogin, ProfileWrapper, ProfileForm, LabelWrapper, ApplicationWrapper, SecondApplicationWrapper, Dot,
+  StyledLogin, ProfileWrapper, ProfileForm, LabelWrapper, SpinnerWrapper, StyledHeader, StyledSection, StyledInputSection, ApplicationWrapper, SecondApplicationWrapper, Dot,
 };

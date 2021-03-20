@@ -3,7 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 import { Context } from './context';
 import Navbar from './components';
 import {
-  Home, Login, Profile, Application,
+  Home, Login, Profile, Application, Challenge,
 } from './pages';
 
 import {
@@ -38,7 +38,7 @@ const App = () => {
                   path="/my_application"
                   render={() => <Application />}
                 />
-                <Route path="/tech" render={() => <p>tech</p>} />
+                <Route path="/tech" render={() => <Challenge />} />
               </Switch>
             </ContentWrapper>
             <Navbar />
