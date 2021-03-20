@@ -5,7 +5,7 @@ import theme from '../../styles/theme';
 const StyledNavContainer = styled.aside`
   background-color: ${theme.colors.light};
   height: 100%;
-  width: 30vw;
+  width: 20vw;
   border: ${theme.spacer.two} solid ${theme.colors.purple};
   border-radius: ${theme.spacer.double};
   padding: ${theme.spacer.double};
@@ -22,18 +22,18 @@ const StyledNavHeader = styled.header`
   align-items: center;
   gap: ${theme.spacer.quad};
 
-    img {
-      width: 8rem;
-      height: 8rem;
-      text-align: center;
-      border: ${theme.spacer.two} solid ${theme.colors.purple};
-      border-radius: 50%;
-    }
+  img {
+    width: 8rem;
+    height: 8rem;
+    text-align: center;
+    border: ${theme.spacer.two} solid ${theme.colors.purple};
+    border-radius: 50%;
+  }
 
-    p {
-      font-size: 30px;
-      font-weight: bold;
-    }
+  p {
+    font-size: 30px;
+    font-weight: bold;
+  }
 `;
 
 const StyledNav = styled.nav`
@@ -69,24 +69,24 @@ const StyledNavFooter = styled.footer`
   align-items: center;
   gap: ${theme.spacer.quad};
 
-    img {
-      width: 8rem;
-      height: 8rem;
-      text-align: center;
-      border: ${theme.spacer.two} solid ${theme.colors.purple};
-      border-radius: 50%;
-    }
+  img {
+    width: 8rem;
+    height: 8rem;
+    text-align: center;
+    border: ${theme.spacer.two} solid ${theme.colors.purple};
+    border-radius: 50%;
+  }
 
-    p {
-      font-size: 30px;
-      font-weight: bold;
-    }
+  p {
+    font-size: 30px;
+    font-weight: bold;
+  }
 
-    p:nth-child(2), p:last-child {
-      font-size: 18px;
-      font-weight: normal;
-      margin-top: ${theme.spacer.two};
-    }
+  p:nth-child(2), p:last-child {
+    font-size: 18px;
+    font-weight: normal;
+    margin-top: ${theme.spacer.two};
+  }
 `;
 
 export {
