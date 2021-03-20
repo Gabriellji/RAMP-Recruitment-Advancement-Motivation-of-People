@@ -4,14 +4,13 @@ import { Context } from '../context';
 import {
   Title, Input, Button, Text,
 } from '../components/atoms';
-import { ProfileForm, LabelWrapper } from './style';
+import { ProfileWrapper, ProfileForm, LabelWrapper } from './style';
 
 export const Profile = () => {
   // context
   const { token, logout } = useContext(Context);
 
   // const
-
   const initialState = {
     name: '',
     surname: '',
@@ -138,7 +137,7 @@ export const Profile = () => {
     <>
       {loaded
         ? (
-          <>
+          <ProfileWrapper>
             {' '}
             <Title
               text="My Profile"
@@ -186,7 +185,7 @@ export const Profile = () => {
                   action={() => setChange(true)}
                 />
               )}
-          </>
+          </ProfileWrapper>
         )
         : <p>spinner</p>}
     </>

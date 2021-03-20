@@ -54,12 +54,72 @@ const StyledLogin = styled.form`
     }
 `;
 
+const ProfileWrapper = styled.section`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  p {
+    font-size: 30px;
+    font-weight: bold;
+  }
+
+  input, button {
+    font-size: 18px;
+    line-height: 24px;
+    border-radius: ${theme.spacer.single};
+    border-color: ${theme.colors.purple};
+    padding: ${theme.spacer.two};
+    width: 33%;
+    text-align: center;
+  }
+
+  input {
+    ::placeholder {
+      color: ${theme.colors.grey};
+    }
+  }
+
+  button {
+    color: ${theme.colors.purple};
+    background-color: ${theme.colors.light};
+    cursor: pointer;
+    transition: all 500ms;
+
+    :hover{
+      color: ${theme.colors.light};
+      background-color: ${theme.colors.purple};
+      border-color: ${theme.colors.light};
+    }
+  }
+`;
+
 const ProfileForm = styled.form`
-background-color:yellow
+  height: 70%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: ${theme.spacer.quad};
 `;
 
 const LabelWrapper = styled.div`
-display:flex
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+  p {
+    font-size: 18px;
+    font-weight: normal;
+  }
+
+  p:nth-child(2) {
+    color: ${theme.colors.purple};
+  }
 `;
 
-export { StyledLogin, ProfileForm, LabelWrapper };
+export {
+  StyledLogin, ProfileWrapper, ProfileForm, LabelWrapper,
+};
