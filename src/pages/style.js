@@ -127,7 +127,8 @@ background-color:red
 `;
 const SecondApplicationWrapper = styled.div`
 display:flex;
-background-color:green
+background-color:green;
+background-color: ${(p) => p.selected && 'red'};
 `;
 const Dot = styled.div`
 width:8px;

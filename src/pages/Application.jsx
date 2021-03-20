@@ -25,13 +25,22 @@ export const Application = () => {
   const [status, setStatus] = useState('');
   const [userId, setUserId] = useState('');
   const [loaded, setLoaded] = useState(false);
-  const [length, setLength] = useState(1);
+  const [length, setLength] = useState(5);
   const [dataToDisplay, setDataToDisplay] = useState(initialData);
 
   // func
   const handleLength = (sta) => {
-    console.log('....status', sta);
-    setLength(2);
+    let test = '';
+    // console.log('....status', sta);
+    switch (sta) {
+    case '':
+      test = 1;
+      break;
+
+    default: test = 0;
+      setLength(test);
+      break;
+    }
   };
   // useEffect
   useEffect(async () => {
@@ -74,15 +83,16 @@ export const Application = () => {
   }, [userId]);
   useEffect(() => {
     handleLength(status);
-    setDataToDisplay(dataToDisplay.length > 0 && dataToDisplay.splice(0, length));
   }, [status]);
   return (
     <ApplicationWrapper>
       { loaded
         ? (
           <>
-            {dataToDisplay.map((topass) => (
-              <SecondApplicationWrapper>
+            {dataToDisplay.map((topass, index) => (
+              <SecondApplicationWrapper
+                selected={index < length}
+              >
                 <Dot />
                 <Text
                   text={topass}

@@ -40,7 +40,7 @@ export const Profile = () => {
   const [change, setChange] = useState(false);
   const [userId, setUserId] = useState('');
   const [email, setEmail] = useState('');
-  const [username, setUsername] = useState('');
+  const [username, setUsername] = useState('default');
   const [error, setError] = useState(false);
 
   // functions
@@ -52,6 +52,7 @@ export const Profile = () => {
   };
 
   const handleSubmit = async (e) => {
+    console.log('............dsf...', username);
     e.preventDefault();
     await fetch('http://localhost:5000/profile', {
       method: 'POST',
@@ -66,6 +67,17 @@ export const Profile = () => {
           setError(true);
         } else {
           setChange(false);
+          fetch('http://localhost:5000/status/', {
+            method: 'POST',
+            headers: new Headers({
+              'x-auth-token': token,
+              'Content-Type': 'application/json',
+            }),
+            body: JSON.stringify({
+              status: 'TI_TO_ORGANIZE',
+            }),
+          });
+          setLoaded(true);
         }
       });
   };
@@ -105,7 +117,9 @@ export const Profile = () => {
       .then((res) => {
         if (res.status === 200) {
           res.json().then((data) => {
-            setUsername(data.username);
+            let myUserName = '';
+            myUserName = data.userName ? data.username : 'user';
+            setUsername(myUserName);
             setUser({
               ...user,
               country: data.country,
