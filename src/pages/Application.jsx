@@ -4,22 +4,22 @@ import { Text } from '../components/atoms';
 
 import { ApplicationWrapper, SecondApplicationWrapper, Dot } from './style';
 
+// initial data
+const initialData = [
+  'Pass first selection',
+  'Tech interview to organize',
+  'Tech interview organized',
+  'Tech interview passed',
+  'tech task assigned',
+  'Tech task started',
+  'Tech task completed',
+  'Tech task passed',
+  'You need to sign a contract now',
+];
+
 export const Application = () => {
   // context
   const { token } = useContext(Context);
-
-  // initial data
-  const initialData = [
-    'Pass first selection',
-    'Tech interview to organize',
-    'Tech interview organized',
-    'Tech interview passed',
-    'tech task assigned',
-    'Tech task started',
-    'Tech task completed',
-    'Tech task passed',
-    'You need to sign a contract now',
-  ];
 
   // state
   const [status, setStatus] = useState('');
@@ -35,19 +35,19 @@ export const Application = () => {
       setLength(1);
       break;
     case 'TI_TO_ORGANIZE':
-      setLength(1);
+      setLength(2);
       break;
     case 'TI_ORGANIZED':
-      setLength(2);
-      break;
-    case 'TI_FINISHED':
-      setLength(2);
-      break;
-    case 'TI_PASSED':
       setLength(3);
       break;
-    case 'TT_ASSIGNED':
+    case 'TI_FINISHED':
+      setLength(3);
+      break;
+    case 'TI_PASSED':
       setLength(4);
+      break;
+    case 'TT_ASSIGNED':
+      setLength(5); /* here */
       break;
     case 'TT_COMPLETED':
       setLength(5);
