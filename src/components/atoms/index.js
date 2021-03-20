@@ -1,11 +1,11 @@
-import Button from './Button/index.jsx'
-import Input from './Input/index.jsx'
-import Text from './Text/index.jsx'
-import Title from './Title/index.jsx'
+import Button from './Button';
+import Input from './Input';
+import Text from './Text';
+import Title from './Title';
 
 export {
-    Button, 
-    Input, 
-    Text, 
-    Title
-}
+  Button,
+  Input,
+  Text,
+  Title,
+};

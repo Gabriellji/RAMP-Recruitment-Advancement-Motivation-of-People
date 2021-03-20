@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 const PageWrapper = styled.main`
 width: 100vw;
@@ -12,6 +12,6 @@ const ContentWrapper = styled.div`
 height:100vh;
 width: 70vw;
 background-color:green
-`
+`;
 
 export { PageWrapper, ContentWrapper }

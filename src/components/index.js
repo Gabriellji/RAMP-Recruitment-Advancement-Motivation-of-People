@@ -1,5 +1,3 @@
-import Navbar from './Navbar/index.jsx'
+import Navbar from './Navbar';
 
-export {
-    Navbar
-}
+export default Navbar;
