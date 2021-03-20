@@ -11,5 +11,5 @@
 	"eslint.run": "onType",
 	"typescript.workspaceSymbols.scope": "currentProject",
 	"javascript.suggest.completeFunctionCalls": true,
-	"editor.detectIndentation": false
+	"editor.detectIndentation": false,
 }
