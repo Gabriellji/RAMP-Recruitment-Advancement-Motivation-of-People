@@ -3,6 +3,14 @@ const router = express.Router();
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const { check, validationResult } = require("express-validator");
+const {
+    SERVER_ERROR,
+    BAD_REQUEST,
+    UNAUTHORIZED,
+  } = require("../../constants/httpCodes");
+  const {
+    SERVER_ERROR_MSG,
+  } = require("../../constants/errorMessages");
 
 const User = require("./user.model");
 
@@ -20,7 +28,7 @@ router.post(
   async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      return res.status(401).json({ errors: errors.array() });
+      return res.status(UNAUTHORIZED).json({ errors: errors.array() });
     }
 
     const { email, password } = req.body;
@@ -30,8 +38,8 @@ router.post(
 
       if (user) {
         return res
-          .status(400)
-          .json({ errors: [{ msg: "User already exists" }] });
+          .status(BAD_REQUEST)
+          .json({ errors: [{ msg: BAD_REQUEST }] });
       }
 
       user = new User({
@@ -62,7 +70,7 @@ router.post(
       );
     } catch (err) {
       console.error(err.message);
-      res.status(500).send("Server error");
+      res.status(SERVER_ERROR).send(SERVER_ERROR_MSG);
     }
   }
 );

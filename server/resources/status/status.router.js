@@ -3,6 +3,16 @@ const router = express.Router();
 const auth = require("../../middleware/auth");
 const { check, validationResult } = require("express-validator");
 
+const {
+  I_AM_A_TEAPOT,
+  SERVER_ERROR,
+  CREATED,
+} = require("../../constants/httpCodes");
+const {
+  SERVER_ERROR_MSG,
+  SECRET_MSG
+} = require("../../constants/errorMessages");
+
 const Status = require("./status.model");
 
 // PRIVATE 
@@ -22,10 +32,10 @@ router.post("/", auth, async (req, res) => {
       { $set: statusFields },
       { new: true, upsert: true, setDefaultsOnInsert: true }
     );
-    res.status(201).json(userStatus);
+    res.status(CREATED).json(userStatus);
   } catch (err) {
     console.error(err.message);
-    res.status(500).send("Server Error");
+    res.status(SERVER_ERROR).send(SERVER_ERROR_MSG);
   }
 });
 
@@ -36,12 +46,12 @@ router.get("/:user_id", async (req, res) => {
             user_id: req.params.user_id,
           }).populate("User");
           if (!status) {
-            return res.status(418).json({ msg: "There is no status for this user" });
+            return res.status(I_AM_A_TEAPOT).json({ msg: SECRET_MSG });
           }
           res.json(status); 
     } catch(err) {
         console.error(err);
-        res.status(500).send("Server Error");
+        res.status(SERVER_ERROR).send(SERVER_ERROR_MSG);
     }
 })
 
