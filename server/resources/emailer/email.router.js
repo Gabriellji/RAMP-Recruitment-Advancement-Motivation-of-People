@@ -24,12 +24,10 @@ contactEmail.verify((error) => {
 });
 
 router.post('/subscribe', (req, res) => {
-  // const { email } = req.body;
-
   const mail = {
-    from: 'SUBSCRIBE REQUEST',
+    from: 'Job Application Confirmation:',
     to: userEmail,
-    subject: 'SUBSCRIBE REQUEST',
+    subject: 'Job Application Confirmation:',
     html: `<h2> Dear Zheniya,</h2>
     <p style="color:grey;font-size:17px;">
     as a result of your application <br/>
