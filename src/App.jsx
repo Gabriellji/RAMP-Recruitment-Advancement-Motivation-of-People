@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import { Switch, Route } from "react-router-dom";
-import { Context } from "./context/Context";
+import { Context } from "./context";
 import {Navbar} from "./components";
 import {Home, Login} from './pages'
 

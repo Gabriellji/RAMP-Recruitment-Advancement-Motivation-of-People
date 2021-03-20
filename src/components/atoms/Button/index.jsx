@@ -1,3 +1,12 @@
-export const Button = ({text}) => <button>{text}</button>
+import React from "react";
 
-export default Button
+export const Button = ({ text, action }) => {
+  return(
+    <button 
+        onClick={action}>
+            {text}
+    </button>
+  );
+};
+
+export default Button;

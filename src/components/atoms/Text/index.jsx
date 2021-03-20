@@ -1,5 +1,12 @@
+import React from 'react'
 
+export const Text = ({text}) => {
 
-export const Text = ({text}) => <p>{text}</p>
+    return (
+        <p>
+            {text}
+        </p>
+    )
+}
 
 export default Text
