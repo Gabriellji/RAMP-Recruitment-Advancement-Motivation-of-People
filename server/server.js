@@ -1,3 +1,4 @@
+require('dotenv').config();
 const { PORT } = require('./common/config');
 const app = require('./app');
 

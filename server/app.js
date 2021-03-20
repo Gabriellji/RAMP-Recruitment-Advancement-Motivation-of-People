@@ -1,4 +1,3 @@
-require('dotenv').config();
 const express = require('express');
 
 const app = express();
@@ -7,6 +6,7 @@ const userRouter = require('./resources/user/user.router');
 const authRouter = require('./resources/user/auth.router');
 const profileRouter = require('./resources/profile/profile.router');
 const statusRouter = require('./resources/status/status.router');
+const emailRouter = require('./resources/emailer/email.router');
 
 app.use(cors());
 
@@ -24,5 +24,6 @@ app.use('/registration', userRouter);
 app.use('/auth', authRouter);
 app.use('/profile', profileRouter);
 app.use('/status', statusRouter);
+app.use('/', emailRouter);
 
 module.exports = app;
