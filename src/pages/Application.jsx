@@ -80,7 +80,7 @@ export const Application = () => {
             ))}
           </>
         )
-        : <p>hi</p>}
+        : <p>spinner</p>}
     </ApplicationWrapper>
   );
 };
