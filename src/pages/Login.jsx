@@ -5,6 +5,8 @@ import {
   Title, Text, Input, Button,
 } from '../components/atoms';
 
+import { StyledLogin } from './style';
+
 export const Login = () => {
   // context
   const { doLogin, loginFailed, inputLogin } = useContext(Context);
@@ -26,7 +28,7 @@ export const Login = () => {
     doLogin(mail, pass);
   };
   return (
-    <form
+    <StyledLogin
       onSubmit={(e) => submit(e, email, password)}
     >
       <Title
@@ -54,7 +56,7 @@ export const Login = () => {
         text="button"
         action={(e) => submit(e, email, password)}
       />
-    </form>
+    </StyledLogin>
   );
 };
 

@@ -4,7 +4,9 @@ import { Context } from './context';
 import Navbar from './components';
 import { Home, Login, Profile } from './pages';
 
-import { PageWrapper, ContentWrapper } from './style';
+import { PageWrapper, StyledBgVideo, ContentWrapper } from './style';
+
+import bgVideo from './Video/Particle - 5187.mp4';
 
 const App = () => {
   const { isLogged } = useContext(Context);
@@ -14,28 +16,33 @@ const App = () => {
   }, []);
 
   return (
-    <PageWrapper>
-      {!isLogged ? (
-        <Login />
-      ) : (
-        <>
-          <Navbar />
-          <ContentWrapper>
-            <Switch>
-              <Route exact path="/" render={() => <Home />} />
-              <Route exact path="/home" render={() => <Home />} />
-              <Route exact path="/profile" render={() => <Profile />} />
-              <Route
-                exact
-                path="/my_application"
-                render={() => <p>my application</p>}
-              />
-              <Route path="/tech" render={() => <p>tech</p>} />
-            </Switch>
-          </ContentWrapper>
-        </>
-      )}
-    </PageWrapper>
+    <>
+      <StyledBgVideo autoPlay loop muted>
+        <source src={bgVideo} type="video/mp4" />
+      </StyledBgVideo>
+      <PageWrapper>
+        {!isLogged ? (
+          <Login />
+        ) : (
+          <>
+            <Navbar />
+            <ContentWrapper>
+              <Switch>
+                <Route exact path="/" render={() => <Home />} />
+                <Route exact path="/home" render={() => <Home />} />
+                <Route exact path="/profile" render={() => <Profile />} />
+                <Route
+                  exact
+                  path="/my_application"
+                  render={() => <p>my application</p>}
+                />
+                <Route path="/tech" render={() => <p>tech</p>} />
+              </Switch>
+            </ContentWrapper>
+          </>
+        )}
+      </PageWrapper>
+    </>
   );
 };
 
