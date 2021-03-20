@@ -1,6 +1,7 @@
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-import { NavContainer, StyledNav } from "./style";
+import { NavContainer, StyledNav } from './style';
 
 export const Navbar = () => (
   <NavContainer>

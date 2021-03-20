@@ -1,5 +1,8 @@
-import Navbar from './Navbar/index.jsx'
+/* esling-disable */
+// eslint-disable-next-line import/extensions
+import Navbar from './Navbar/index.jsx';
 
 export {
-    Navbar
-}
+  // eslint-disable-next-line import/prefer-default-export
+  Navbar,
+};
