@@ -1,55 +1,59 @@
-import React, {useState, useContext} from 'react'
-import {Context} from '../context'
+import React, { useState, useContext } from 'react';
+import { Context } from '../context';
 
-import {Title, Text, Input, Button} from '../components/atoms'
+import {
+  Title, Text, Input, Button,
+} from '../components/atoms';
+
+import { StyledLogin } from './style';
 
 export const Login = () => {
-    //context
-    const {doLogin, loginFailed, inputLogin} = useContext(Context)
-    //state
-    const [email, setEmail] = useState("")
-    const [password, setPassword] = useState("")
-    //functions
-    const changeEmail = (email) => {
-        inputLogin()
-        setEmail(email)
-    }
-    const changePassword = (password) => {
-        inputLogin()
-        setPassword(password)
-    }
-    const submit = (e, email, password) => {
-        e.preventDefault();
-        doLogin(email, password)
-    }
-    return(
-        <form
-        onSubmit={(e)=>submit(e, email, password)}
-        >
-        <Title
-        text="Login"
-        />
-        {loginFailed && <Text
-        text="try again"
-        />}
+  // context
+  const { doLogin, loginFailed, inputLogin } = useContext(Context);
+  // state
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  // functions
+  const changeEmail = (mail) => {
+    inputLogin();
+    setEmail(mail);
+  };
+  const changePassword = (pass) => {
+    inputLogin();
+    setPassword(pass);
+  };
+
+  const submit = (e, mail, pass) => {
+    e.preventDefault();
+    doLogin(mail, pass);
+  };
+  return (
+    <StyledLogin
+      onSubmit={(e) => submit(e, email, password)}
+    >
+      <Title
+        text="Welcome to RAMP"
+      />
+      {loginFailed && (
         <Text
-        text="email"
+          text="Wrong email and/or password, please try again"
         />
-        <Input
+      )}
+      <Input
         placeholder="email"
-        onChange={(value)=>changeEmail(value)}
-        />
-        <Text text="password"/>
-        <Input
+        onChange={(value) => changeEmail(value)}
+      />
+      <Input
         placeholder="password"
-        onChange={(value)=>changePassword(value)}
+        onChange={(value) => changePassword(value)}
         type="password"
-        />
-        <Button 
-        text="button"
-        action={(e)=>submit(e, email, password)}/>
-        </form>
-    )
-}
+      />
+      <Button
+        text="Login"
+        action={(e) => submit(e, email, password)}
+      />
+    </StyledLogin>
+  );
+};
 
 export default Login;

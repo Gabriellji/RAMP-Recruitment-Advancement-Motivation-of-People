@@ -1,0 +1,15 @@
+{
+  "eslint.alwaysShowStatus": true,
+  "eslint.format.enable": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "eslint.validate": ["javascript"],
+  "files.insertFinalNewline": true,
+  "editor.tabSize": 2,
+	"editor.insertSpaces": true,
+	"eslint.run": "onType",
+	"typescript.workspaceSymbols.scope": "currentProject",
+	"javascript.suggest.completeFunctionCalls": true,
+	"editor.detectIndentation": false
+}
