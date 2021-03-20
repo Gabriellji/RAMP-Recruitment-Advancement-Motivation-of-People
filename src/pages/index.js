@@ -1,6 +1,5 @@
-/* eslint-disable import/extensions */
-import Home from './Home.jsx';
-import Login from './Login.jsx';
+import Home from './Home';
+import Login from './Login';
 
 export {
   Home,

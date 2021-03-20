@@ -1,6 +1,5 @@
 import React, { useState, useContext } from 'react';
-// eslint-disable-next-line import/extensions
-import { Context } from '../context/index.jsx';
+import { Context } from '../context';
 
 import {
   Title, Text, Input, Button,

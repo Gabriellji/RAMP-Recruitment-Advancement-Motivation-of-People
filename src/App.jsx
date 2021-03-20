@@ -1,8 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import { Switch, Route } from 'react-router-dom';
-// eslint-disable-next-line import/extensions
-import { Context } from './context/index.jsx';
-import { Navbar } from './components';
+import { Context } from './context';
+import Navbar from './components';
 import { Home, Login } from './pages';
 
 import { PageWrapper, ContentWrapper } from './style';
