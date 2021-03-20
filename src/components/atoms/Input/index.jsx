@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 export const Input = ({
-  placeholder, onChange, type, id,
+  placeholder, onChange, type, id, initialValue,
 }) => {
-  const [value, setValue] = useState('');
+  const [value, setValue] = useState(initialValue);
 
   const handleChange = (e) => {
     setValue(e.target.value);
@@ -28,11 +28,14 @@ Input.defaultProps = {
   type: 'text',
   placeholder: '',
   id: '',
+  onChange: () => {},
+  initialValue: '',
 };
 
 Input.propTypes = {
   placeholder: PropTypes.string,
-  onChange: PropTypes.func.isRequired,
+  onChange: PropTypes.func,
   type: PropTypes.string,
   id: PropTypes.string,
+  initialValue: PropTypes.string,
 };

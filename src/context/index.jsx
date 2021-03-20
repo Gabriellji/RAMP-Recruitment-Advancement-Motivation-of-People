@@ -42,6 +42,10 @@ const Provider = ({ children }) => {
     setLoginFailed(false);
   };
 
+  const logout = () => {
+    setIsLogged(false);
+  };
+
   return (
 
     <Context.Provider
@@ -54,6 +58,7 @@ const Provider = ({ children }) => {
         scrollTop,
         doLogin,
         inputLogin,
+        logout,
       }}
     >
       {children}
