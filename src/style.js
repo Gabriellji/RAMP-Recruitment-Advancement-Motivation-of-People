@@ -7,6 +7,7 @@ display: flex;
 justify-content: center;
 align-items: center;
 z-index: 10;
+padding: 5rem;
 `;
 
 const StyledBgVideo = styled.video`

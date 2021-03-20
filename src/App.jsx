@@ -25,10 +25,8 @@ const App = () => {
           <Login />
         ) : (
           <>
-            <Navbar />
             <ContentWrapper>
               <Switch>
-                <Route exact path="/" render={() => <Home />} />
                 <Route exact path="/home" render={() => <Home />} />
                 <Route exact path="/profile" render={() => <Profile />} />
                 <Route
@@ -39,6 +37,7 @@ const App = () => {
                 <Route path="/tech" render={() => <p>tech</p>} />
               </Switch>
             </ContentWrapper>
+            <Navbar />
           </>
         )}
       </PageWrapper>

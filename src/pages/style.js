@@ -5,7 +5,7 @@ const StyledLogin = styled.form`
   background-color: ${theme.colors.light};
   width: 50vw;
   height: 25vh;
-  border: 2px solid ${theme.colors.purple};
+  border: ${theme.spacer.two} solid ${theme.colors.purple};
   border-radius: ${theme.spacer.double};
   padding: ${theme.spacer.double};
   display: flex;

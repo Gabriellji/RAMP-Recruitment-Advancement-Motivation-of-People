@@ -1,19 +1,29 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import { NavContainer, StyledNav } from './style';
+import {
+  StyledNavContainer, StyledNavHeader, StyledNav, LinkElem,
+} from './style';
 
 export const Navbar = () => (
-  <NavContainer>
-    <p>my picture and stuff here</p>
+  <StyledNavContainer>
+    <StyledNavHeader>
+      <img src="https://www.rd.com/wp-content/uploads/2017/09/01-shutterstock_476340928-Irina-Bg.jpg" alt="my profile" />
+      <p>Jane Doe</p>
+    </StyledNavHeader>
     <StyledNav>
-      <Link to="/">HOME</Link>
-      <Link to="/profile">PROFILE</Link>
-      <Link to="/my_application">MY APPLICATION</Link>
-      <Link to="/tech">TECH TASK</Link>
+      <hr />
+      <LinkElem to="/home">HOME</LinkElem>
+      <hr />
+      <LinkElem to="/profile">PROFILE</LinkElem>
+      <hr />
+      <LinkElem to="/my_application">MY APPLICATION</LinkElem>
+      <hr />
+      <LinkElem to="/tech">TECH TASK</LinkElem>
+      <hr />
     </StyledNav>
     <p>other stuff here</p>
-  </NavContainer>
+  </StyledNavContainer>
 );
 
 export default Navbar;
