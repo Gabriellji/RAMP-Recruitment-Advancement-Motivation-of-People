@@ -19,6 +19,7 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.12.1",
     "nodemon": "^2.0.7",
+    "twilio": "^3.58.0",
     "uuidv4": "^6.2.6"
   }
 }

