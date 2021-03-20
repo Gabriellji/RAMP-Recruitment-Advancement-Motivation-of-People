@@ -94,7 +94,7 @@ router.post(
 
 // Public
 // GET /profile/:user_id
-// gets user profile by its id
+// gets user profile by user id
 
 router.get("/:user_id", async (req, res) => {
   try {

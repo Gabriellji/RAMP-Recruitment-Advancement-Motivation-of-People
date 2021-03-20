@@ -29,4 +29,20 @@ router.post("/", auth, async (req, res) => {
   }
 });
 
+
+router.get("/:user_id", async (req, res) => {
+    try {
+        const status = await Status.findOne({
+            user_id: req.params.user_id,
+          }).populate("User");
+          if (!status) {
+            return res.status(418).json({ msg: "There is no status for this user" });
+          }
+          res.json(status); 
+    } catch(err) {
+        console.error(err);
+        res.status(500).send("Server Error");
+    }
+})
+
 module.exports = router;
