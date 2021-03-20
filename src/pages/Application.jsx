@@ -25,7 +25,14 @@ export const Application = () => {
   const [status, setStatus] = useState('');
   const [userId, setUserId] = useState('');
   const [loaded, setLoaded] = useState(false);
+  const [length, setLength] = useState(1);
+  const [dataToDisplay, setDataToDisplay] = useState(initialData);
 
+  // func
+  const handleLength = (sta) => {
+    console.log('....status', sta);
+    setLength(2);
+  };
   // useEffect
   useEffect(async () => {
     if (token) {
@@ -65,12 +72,16 @@ export const Application = () => {
       });
     setLoaded(true);
   }, [userId]);
+  useEffect(() => {
+    handleLength(status);
+    setDataToDisplay(dataToDisplay.length > 0 && dataToDisplay.splice(0, length));
+  }, [status]);
   return (
     <ApplicationWrapper>
       { loaded
         ? (
           <>
-            {initialData.map((topass) => (
+            {dataToDisplay.map((topass) => (
               <SecondApplicationWrapper>
                 <Dot />
                 <Text
