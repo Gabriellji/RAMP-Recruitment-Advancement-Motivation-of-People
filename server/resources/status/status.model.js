@@ -1,23 +1,23 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 const statusSchema = new mongoose.Schema(
   {
     user_id: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "User",
+      ref: 'User',
     },
     status: {
       type: String,
-      default: "",
+      default: '',
     },
     start_time: {
       type: Date,
       default: Date.now(),
-    }
+    },
   },
-  { timestamps: true }
+  { timestamps: true },
 );
 
-const Status = mongoose.model("Status", statusSchema);
+const Status = mongoose.model('Status', statusSchema);
 
 module.exports = Status;

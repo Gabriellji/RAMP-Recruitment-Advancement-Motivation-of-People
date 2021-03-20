@@ -6,5 +6,5 @@ module.exports = {
   OK: 200,
   NO_CONTENT: 204,
   I_AM_A_TEAPOT: 418,
-  UNAUTHORIZED: 401
+  UNAUTHORIZED: 401,
 };
