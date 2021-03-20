@@ -31,7 +31,7 @@ const StyledNavHeader = styled.header`
   }
 
   p {
-    font-size: 30px;
+    font-size: 24px;
     font-weight: bold;
   }
 `;
@@ -39,7 +39,7 @@ const StyledNavHeader = styled.header`
 const StyledNav = styled.nav`
   display: flex;
   flex-direction: column;
-  gap: ${theme.spacer.double};
+  gap: ${theme.spacer.single};
 
     hr {
       border: ${theme.spacer.one} solid ${theme.colors.purple};
@@ -49,7 +49,7 @@ const StyledNav = styled.nav`
 const activeClassName = 'active';
 
 const LinkElem = styled(NavLink).attrs({ activeClassName })`
-  font-size: 30px;
+  font-size: 18px;
   text-decoration: none;
   color: ${theme.colors.dark};
 
@@ -78,12 +78,12 @@ const StyledNavFooter = styled.footer`
   }
 
   p {
-    font-size: 30px;
+    font-size: 24px;
     font-weight: bold;
   }
 
   p:nth-child(2), p:last-child {
-    font-size: 18px;
+    font-size: 12px;
     font-weight: normal;
     margin-top: ${theme.spacer.two};
   }

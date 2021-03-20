@@ -35,6 +35,7 @@ const StyledLogin = styled.form`
     }
 
     input {
+      box-shadow: inset 3px 3px 5px 0px rgba(100, 100, 100, 0.8);
       ::placeholder {
         color: ${theme.colors.grey};
       }
@@ -45,6 +46,7 @@ const StyledLogin = styled.form`
       background-color: ${theme.colors.light};
       cursor: pointer;
       transition: all 500ms;
+      box-shadow: 3px 3px 5px 0px rgba(100, 100, 100, 0.8);
 
       :hover{
         color: ${theme.colors.light};
@@ -78,6 +80,7 @@ const ProfileWrapper = styled.section`
   }
 
   input {
+    box-shadow: inset 3px 3px 5px 0px rgba(100, 100, 100, 0.8);
     ::placeholder {
       color: ${theme.colors.grey};
     }
@@ -88,6 +91,7 @@ const ProfileWrapper = styled.section`
     background-color: ${theme.colors.light};
     cursor: pointer;
     transition: all 500ms;
+    box-shadow: 3px 3px 5px 0px rgba(100, 100, 100, 0.8);
 
     :hover{
       color: ${theme.colors.light};
