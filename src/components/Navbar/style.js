@@ -26,7 +26,7 @@ const StyledNavHeader = styled.header`
       width: 8rem;
       height: 8rem;
       text-align: center;
-      border: ${theme.spacer.tone} solid ${theme.colors.purple};
+      border: ${theme.spacer.two} solid ${theme.colors.purple};
       border-radius: 50%;
     }
 
@@ -40,6 +40,10 @@ const StyledNav = styled.nav`
   display: flex;
   flex-direction: column;
   gap: ${theme.spacer.double};
+
+    hr {
+      border: ${theme.spacer.one} solid ${theme.colors.purple};
+    }
 `;
 
 const activeClassName = 'active';
@@ -58,6 +62,33 @@ const LinkElem = styled(NavLink).attrs({ activeClassName })`
     }
 `;
 
+const StyledNavFooter = styled.footer`
+  width: 100%;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  gap: ${theme.spacer.quad};
+
+    img {
+      width: 8rem;
+      height: 8rem;
+      text-align: center;
+      border: ${theme.spacer.two} solid ${theme.colors.purple};
+      border-radius: 50%;
+    }
+
+    p {
+      font-size: 30px;
+      font-weight: bold;
+    }
+
+    p:nth-child(2), p:last-child {
+      font-size: 18px;
+      font-weight: normal;
+      margin-top: ${theme.spacer.two};
+    }
+`;
+
 export {
-  StyledNavContainer, StyledNavHeader, StyledNav, LinkElem,
+  StyledNavContainer, StyledNavHeader, StyledNav, LinkElem, StyledNavFooter,
 };

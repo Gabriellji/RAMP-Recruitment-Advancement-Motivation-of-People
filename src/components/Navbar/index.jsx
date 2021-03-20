@@ -1,8 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 import {
-  StyledNavContainer, StyledNavHeader, StyledNav, LinkElem,
+  StyledNavContainer, StyledNavHeader, StyledNav, LinkElem, StyledNavFooter,
 } from './style';
 
 export const Navbar = () => (
@@ -22,7 +21,14 @@ export const Navbar = () => (
       <LinkElem to="/tech">TECH TASK</LinkElem>
       <hr />
     </StyledNav>
-    <p>other stuff here</p>
+    <StyledNavFooter>
+      <img src="https://www.infosec.news/wp-content/uploads/2020/09/MarioRossi-1.jpg" alt="my profile" />
+      <section>
+        <p>Mario Rossi</p>
+        <p>Hi, I am your recruiter for this application</p>
+        <p>Send me a message by clicking on my picture</p>
+      </section>
+    </StyledNavFooter>
   </StyledNavContainer>
 );
 
