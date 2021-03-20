@@ -7,6 +7,7 @@ const Provider = ({ children }) => {
   // STATE
   const [isLogged, setIsLogged] = useState(false);
   const [loginFailed, setLoginFailed] = useState(false);
+  const [token, setToken] = useState('');
 
   // FUNCTION
   // scrolltop, for changing page
@@ -15,13 +16,28 @@ const Provider = ({ children }) => {
   };
 
   // login handling
-  const doLogin = (username, password) => {
-    // apicallhere
-    // eslint-disable-next-line no-unused-expressions
-    username === 'test' && password === 'test'
-      ? setIsLogged(true) // status200
-      : setLoginFailed(true); // status400
+
+  const doLogin = (email, password) => {
+    fetch('http://localhost:5000/auth', {
+      method: 'POST',
+      headers: new Headers({
+        'Content-Type': 'application/json',
+      }),
+      body: JSON.stringify({
+        email,
+        password,
+      }),
+    })
+      .then((res) => {
+        if (res.status !== 200) {
+          setLoginFailed(true);
+        } else {
+          setIsLogged(true);
+          res.json().then((data) => setToken(data.token));
+        }
+      });
   };
+
   const inputLogin = () => {
     setLoginFailed(false);
   };
@@ -33,6 +49,7 @@ const Provider = ({ children }) => {
         // state
         isLogged,
         loginFailed,
+        token,
         // functions
         scrollTop,
         doLogin,
