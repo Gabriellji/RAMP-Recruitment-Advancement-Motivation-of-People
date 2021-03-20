@@ -92,4 +92,19 @@ router.post(
   }
 );
 
+router.get("/:user_id", async (req, res) => {
+  try {
+    const profile = await Profile.findOne({
+      user_id: req.params.user_id,
+    }).populate("User");
+    if (!profile) {
+      return res.status(404).json({ msg: "There is no profile for this user" });
+    }
+    res.json(profile);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("Server Error");
+  }
+});
+
 module.exports = router;
