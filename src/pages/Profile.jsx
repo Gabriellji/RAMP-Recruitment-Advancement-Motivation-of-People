@@ -1,4 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react';
+import moment from 'moment';
 import { Context } from '../context';
 import {
   Title, Input, Button, Text,
@@ -8,7 +9,9 @@ import { ProfileForm, LabelWrapper } from './style';
 export const Profile = () => {
   // context
   const { token, logout } = useContext(Context);
+
   // const
+
   const initialState = {
     name: '',
     surname: '',
@@ -21,6 +24,7 @@ export const Profile = () => {
     github: '',
     website: '',
   };
+
   const info = [
     { name: 'First name', key: 'name' },
     { name: 'Second name', key: 'surname' },
@@ -33,40 +37,80 @@ export const Profile = () => {
     { name: 'Github', key: 'github' },
     { name: 'Personal website', key: 'website' },
   ];
+
   // state
+
   const [user, setUser] = useState(initialState);
   const [loaded, setLoaded] = useState(false);
   const [change, setChange] = useState(false);
+  const [userId, setUserId] = useState('');
 
   // functions
+
   const handleOnChange = (e) => {
     const newUser = user;
     newUser[e.target.id] = e.target.value;
     setUser(newUser);
   };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('..............', user);
     setChange(false);
   };
+
   // useEffect
+
   useEffect(async () => {
-    await fetch('http://localhost:5000/auth', {
-      method: 'GET',
-      headers: new Headers({
-        'x-auth-token': token,
-        'Content-Type': 'application/json',
-      }),
-    })
-      .then((res) => {
-        if (res.status !== 200) {
-          // logout();
-        } else {
-          res.json().then((data) => setUser({ ...user, email: data.email }));
-        }
-      });
-    setLoaded(true);
-  }, []);
+    if (logout && token) {
+      const id = '';
+      await fetch('http://localhost:5000/auth', {
+        method: 'GET',
+        headers: new Headers({
+          'x-auth-token': token,
+          'Content-Type': 'application/json',
+        }),
+      })
+        .then((res) => {
+          if (res.status !== 200) {
+            // logout();
+          } else {
+            res.json().then((data) => {
+              // eslint-disable-next-line no-underscore-dangle
+              setUserId(data._id);
+              setUser({ ...user, email: data.email });
+            });
+          }
+        });
+      await fetch(`http://localhost:5000/profile/${userId}`, {
+        method: 'GET',
+        headers: new Headers({
+          'x-auth-token': token,
+          'Content-Type': 'application/json',
+        }),
+      })
+        .then((res) => {
+          if (res.status !== 200) {
+            // logout();
+          } else {
+            res.json().then((data) => {
+              setUser({
+                ...user,
+                country: data.country,
+                cv: data.cv,
+                date: moment(data.date_of_birth).format('YYYY/MM/DD'),
+                github: data.github,
+                linkedin: data.linkedin,
+                name: data.name,
+                phone: data.phone,
+                surname: data.surname,
+                website: data.website,
+              });
+            });
+          }
+        });
+      setLoaded(true);
+    }
+  }, [logout, token]);
 
   return (
     <>
