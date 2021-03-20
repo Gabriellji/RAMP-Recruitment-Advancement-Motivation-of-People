@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const Navbar = () => (
+export const Navbar = () => (
   <nav>
     <Link to="/">HOME</Link>
     <Link to="/profile">PROFILE</Link>

@@ -4,6 +4,7 @@ export const Context = React.createContext();
 
 const Provider = ({ children }) => {
   //state
+  const [isLogged, setIsLogged] = useState(false)
 
   //function
 
@@ -11,14 +12,23 @@ const Provider = ({ children }) => {
     window.scrollTo(0, 0);
   };
 
+  const doLogin = (username, password) => {
+    //apicallhere
+    username==="test" && password==="test" 
+    && setIsLogged(true)
+  }
+
   return (
 
     <Context.Provider
       value={{
         //state
+        isLogged,
 
         //functions
-        scrollTop
+        scrollTop,
+        doLogin,
+        
       }}
     >
       {children}
