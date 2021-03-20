@@ -25,21 +25,50 @@ export const Application = () => {
   const [status, setStatus] = useState('');
   const [userId, setUserId] = useState('');
   const [loaded, setLoaded] = useState(false);
-  const [length, setLength] = useState(5);
+  const [length, setLength] = useState(1);
   const [dataToDisplay, setDataToDisplay] = useState(initialData);
 
   // func
   const handleLength = (sta) => {
+    console.log('........', length);
     let test = '';
     // console.log('....status', sta);
+    console.log('........status', sta);
     switch (sta) {
     case '':
+      test = 3;
+      break;
+    case 'TI_TO_ORGANIZE':
+      test = 2;
+      break;
+    case 'TI_ORGANIZED':
       test = 1;
       break;
-
-    default: test = 0;
-      setLength(test);
+    case 'TI_FINISHED':
+      test = 1;
       break;
+    case 'TI_PASSED':
+      test = 1;
+      break;
+    case 'TT_ASSIGNED':
+      test = 1;
+      break;
+    case 'TT_COMPLETED':
+      test = 1;
+      break;
+    case 'TT_PASSED':
+      test = 1;
+      break;
+    case 'TT_NOT_PASSED':
+      test = 1;
+      break;
+    case 'PASSED':
+      test = 1;
+      break;
+    case 'NOT_PASSED':
+      test = 1;
+      break;
+    default: test = 0;
     }
   };
   // useEffect
@@ -63,6 +92,10 @@ export const Application = () => {
         });
     }
   }, [token]);
+
+  useEffect(() => {
+    console.log('.......', length);
+  }, [length]);
 
   useEffect(async () => {
     await fetch(`http://localhost:5000/status/${userId}`, {
