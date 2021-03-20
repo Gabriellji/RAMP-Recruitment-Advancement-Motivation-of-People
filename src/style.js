@@ -1,7 +1,11 @@
 import styled from 'styled-components'
 
 const PageWrapper = styled.main`
-display:flex
+width: 100vw;
+height: 100vh;
+display: flex;
+justify-content: center;
+align-items: center;
 `
 
 const ContentWrapper = styled.div`
@@ -10,4 +14,4 @@ width: 70vw;
 background-color:green
 `
 
-export {PageWrapper, ContentWrapper}
+export { PageWrapper, ContentWrapper }
