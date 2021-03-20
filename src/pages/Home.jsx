@@ -101,8 +101,6 @@ export const Home = () => {
   }, [userId]);
 
   useEffect(() => {
-    console.log('....................', typeof status);
-    // func that change switch here
     handleLength(status);
   }, [status]);
 
@@ -111,7 +109,6 @@ export const Home = () => {
       {
         initialData[length]
       }
-
     </h1>
   );
 };
