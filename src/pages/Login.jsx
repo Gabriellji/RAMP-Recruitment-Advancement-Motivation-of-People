@@ -32,28 +32,24 @@ export const Login = () => {
       onSubmit={(e) => submit(e, email, password)}
     >
       <Title
-        text="Login"
+        text="Welcome to RAMP"
       />
       {loginFailed && (
         <Text
-          text="try again"
+          text="Wrong email and/or password, please try again"
         />
       )}
-      <Text
-        text="email"
-      />
       <Input
         placeholder="email"
         onChange={(value) => changeEmail(value)}
       />
-      <Text text="password" />
       <Input
         placeholder="password"
         onChange={(value) => changePassword(value)}
         type="password"
       />
       <Button
-        text="button"
+        text="Login"
         action={(e) => submit(e, email, password)}
       />
     </StyledLogin>
