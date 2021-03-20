@@ -35,16 +35,23 @@ export const Profile = () => {
   ];
   // state
   const [user, setUser] = useState(initialState);
+  const [loaded, setLoaded] = useState(false);
+  const [change, setChange] = useState(false);
+
   // functions
   const handleOnChange = (e) => {
     const newUser = user;
     newUser[e.target.id] = e.target.value;
     setUser(newUser);
-    console.log('...', newUser);
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log('..............', user);
+    setChange(false);
   };
   // useEffect
-  useEffect(() => {
-    fetch('http://localhost:5000/auth', {
+  useEffect(async () => {
+    await fetch('http://localhost:5000/auth', {
       method: 'GET',
       headers: new Headers({
         'x-auth-token': token,
@@ -53,35 +60,64 @@ export const Profile = () => {
     })
       .then((res) => {
         if (res.status !== 200) {
-          logout();
+          // logout();
         } else {
           res.json().then((data) => setUser({ ...user, email: data.email }));
         }
       });
+    setLoaded(true);
   }, []);
 
   return (
     <>
-      <Title
-        text="My Profile"
-      />
-      <ProfileForm onChange={(e) => handleOnChange(e)}>
-        {info.map((option) => (
-          <LabelWrapper>
-            <Text
-              text={option.name}
+      {loaded
+        ? (
+          <>
+            {' '}
+            <Title
+              text="My Profile"
             />
-            <Input
-              placeholder={option.name}
-              value={user[option.key]}
-              id={option.key}
-            />
-          </LabelWrapper>
-        ))}
-        <Button
-          text="Edit profile"
-        />
-      </ProfileForm>
+            <ProfileForm
+              onChange={(e) => handleOnChange(e)}
+              onSubmit={(e) => handleSubmit(e)}
+            >
+              {info.map((option) => (
+                <LabelWrapper>
+                  <Text
+                    text={option.name}
+                  />
+                  {change
+                    ? (
+                      <Input
+                        placeholder={option.name}
+                        initialValue={user[option.key]}
+                        id={option.key}
+                      />
+                    )
+                    : (
+                      <Text
+                        text={user[option.key]}
+                      />
+                    )}
+                </LabelWrapper>
+              ))}
+            </ProfileForm>
+            {change
+              ? (
+                <Button
+                  text="Save"
+                  action={(e) => handleSubmit(e)}
+                />
+              )
+              : (
+                <Button
+                  text="Edit profile"
+                  action={() => setChange(true)}
+                />
+              )}
+          </>
+        )
+        : <p>spinner</p>}
     </>
   );
 };
