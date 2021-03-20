@@ -2,6 +2,16 @@ const express = require("express");
 const router = express.Router();
 const auth = require("../../middleware/auth");
 const { check, validationResult } = require("express-validator");
+const {
+  BAD_REQUEST,
+  SERVER_ERROR,
+  NOT_FOUND,
+  CREATED,
+} = require("../../constants/httpCodes");
+const {
+  SERVER_ERROR_MSG,
+  NOT_FOUND_MSG,
+} = require("../../constants/errorMessages");
 
 const Profile = require("./profile.model");
 
@@ -46,7 +56,7 @@ router.post(
   async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      return res.status(400).json({ errors: errors.array() });
+      return res.status(BAD_REQUEST).json({ errors: errors.array() });
     }
     try {
       const {
@@ -84,17 +94,17 @@ router.post(
         { new: true, upsert: true, setDefaultsOnInsert: true }
       );
 
-      res.status(201).json(profile);
+      res.status(CREATED).json(profile);
     } catch (err) {
       console.error(err.message);
-      return res.status(500).send("Server Error");
+      return res.status(SERVER_ERROR).send(SERVER_ERROR_MSG);
     }
   }
 );
 
 // Public
 // GET /profile/:user_id
-// gets user profile by its id
+// gets user profile by user id
 
 router.get("/:user_id", async (req, res) => {
   try {
@@ -102,12 +112,12 @@ router.get("/:user_id", async (req, res) => {
       user_id: req.params.user_id,
     }).populate("User");
     if (!profile) {
-      return res.status(404).json({ msg: "There is no profile for this user" });
+      return res.status(NOT_FOUND).json({ msg: NOT_FOUND_MSG });
     }
     res.json(profile);
   } catch (err) {
     console.error(err.message);
-    res.status(500).send("Server Error");
+    res.status(SERVER_ERROR).send(SERVER_ERROR_MSG);
   }
 });
 
