@@ -50,7 +50,7 @@ export const Navbar = () => {
           res.json().then((data) => {
             setPic(data.profile_picture || pic);
             setFullName(`${data.name} ${data.surname}`);
-            console.log('........', data);
+            // console.log('........', data);
           });
         }
       });

@@ -18,6 +18,7 @@ export const Login = () => {
     inputLogin();
     setEmail(mail);
   };
+
   const changePassword = (pass) => {
     inputLogin();
     setPassword(pass);
