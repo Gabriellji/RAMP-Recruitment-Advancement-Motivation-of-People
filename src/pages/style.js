@@ -286,10 +286,81 @@ const DateWrapper = styled.div`
 `;
 
 const HomeHeader = styled.header`
-  
+  width: 100%;
+  height: 20vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: ${theme.spacer.double};
+
+  img {
+    width: 40%;
+  }
+`;
+
+const HomeMain = styled.main`
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  gap: ${theme.spacer.quad};
+
+  h1 {
+    font-size: 24px;
+  }
+
+  input, button {
+    font-size: 18px;
+    line-height: 24px;
+    border-radius: ${theme.spacer.single};
+    border-color: ${theme.colors.purple};
+    padding: ${theme.spacer.two};
+    width: 100%;
+    text-align: center;
+  }
+
+  input {
+    box-shadow: inset 3px 3px 5px 0px rgba(100, 100, 100, 0.8);
+    ::placeholder {
+      color: ${theme.colors.grey};
+    }
+  }
+
+  button {
+    color: ${theme.colors.purple};
+    background-color: ${theme.colors.light};
+    cursor: pointer;
+    transition: all 500ms;
+    box-shadow: 3px 3px 5px 0px rgba(100, 100, 100, 0.8);
+
+    :hover {
+      color: ${theme.colors.light};
+      background-color: ${theme.colors.purple};
+      border-color: ${theme.colors.light};
+    }
+  }
+`;
+
+const TextSection = styled.section`
+  p {
+    font-size: 18px;
+    margin-bottom: ${theme.spacer.single};
+  }
+`;
+
+const ButtonSection = styled.section`
+  display: flex;
+  flex-direction: column;
+  gap: ${theme.spacer.single};
+`;
+
+const LastP = styled.p`
+  font-size: 12px;
+  font-style: italic;
+  text-align: right;
 `;
 
 export {
   // eslint-disable-next-line
-  StyledLogin, ProfileWrapper, ProfileForm, LabelWrapper, SpinnerWrapper, StyledHeader, StyledSection, StyledInputSection, ApplicationWrapper, SecondApplicationWrapper, Dot, DateWrapper
+  StyledLogin, ProfileWrapper, ProfileForm, LabelWrapper, SpinnerWrapper, StyledHeader, StyledSection, StyledInputSection, ApplicationWrapper, SecondApplicationWrapper, Dot, DateWrapper, HomeHeader, HomeMain, TextSection, LastP, ButtonSection,
 };
