@@ -1,6 +1,18 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { Context } from '../context';
 
+const initialData = [
+  'Pass first selection',
+  'Tech interview to organize',
+  'Tech interview organized',
+  'Tech interview passed',
+  'tech task assigned',
+  'Tech task started',
+  'Tech task completed',
+  'Tech task passed',
+  'You need to sign a contract now',
+];
+
 export const Home = () => {
   // context
   const { token } = useContext(Context);
@@ -9,6 +21,44 @@ export const Home = () => {
   const [userId, setUserid] = useState('');
   const [loaded, setLoaded] = useState(false);
   const [status, setStatus] = useState('');
+  const [length, setLength] = useState('');
+
+  const handleLength = (myStatus) => {
+    switch (myStatus) {
+    case '':
+      setLength(1);
+      break;
+    case 'TI_TO_ORGANIZE':
+      setLength(2);
+      break;
+    case 'TI_ORGANIZED':
+      setLength(3);
+      break;
+    case 'TI_FINISHED':
+      setLength(3);
+      break;
+    case 'TI_PASSED':
+      setLength(4);
+      break;
+    case 'TT_ASSIGNED':
+      setLength(5); /* here */
+      break;
+    case 'TT_COMPLETED':
+      setLength(5);
+      break;
+    case 'TT_NOT_PASSED':
+      setLength(5);
+      break;
+    case 'PASSED':
+      setLength(1);
+      break;
+    case 'NOT_PASSED':
+      setLength(1);
+      break;
+    default: setLength(1);
+      break;
+    }
+  };
 
   // useeffect
   useEffect(async () => {
@@ -51,12 +101,18 @@ export const Home = () => {
   }, [userId]);
 
   useEffect(() => {
-    console.log('....................', status);
+    console.log('....................', typeof status);
     // func that change switch here
+    handleLength(status);
   }, [status]);
 
   return (
-    <h1>hi</h1>
+    <h1>
+      {
+        initialData[length]
+      }
+
+    </h1>
   );
 };
 
