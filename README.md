@@ -64,6 +64,6 @@ We are [Yauheniya](https://www.linkedin.com/in/evgeniya-gabrikova/), [Jacopo](ht
 
 ### LinkedIn profiles
 - [Habrykava Yauheniya](https://www.linkedin.com/in/evgeniya-gabrikova/)
-- [Luri Jacopo](https://www.linkedin.com/in/jacopo-luri-1111081a2/)
+- [Jacopo Luri](https://www.linkedin.com/in/jacopo-luri-1111081a2/)
 - [Mancini](https://www.linkedin.com/in/mancia08/)
 
