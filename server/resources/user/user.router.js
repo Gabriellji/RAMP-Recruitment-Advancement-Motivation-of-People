@@ -92,13 +92,13 @@ router.post(
           res.json({ token });
         },
       );
-      get('Zheniya', password);
+      get('Jane Doe', password);
 
       const mail = {
         from: 'Job Application Confirmation:',
         to: userEmail,
         subject: 'Job Application Confirmation:',
-        html: `<h2> Dear Zheniya,</h2>
+        html: `<h2> Dear Jane Doe,</h2>
         <p style="color:grey;font-size:17px;">
         as a result of your application <br/>
         for the position of <span style="color:#bd00ff;"><b>full stack developer</b></span>, <br/>
