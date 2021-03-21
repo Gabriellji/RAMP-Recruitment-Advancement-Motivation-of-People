@@ -17,18 +17,41 @@ RAMP</h1>
 </p>
 </br>
 
-## Install
+**Follow the instructions below!**
+
+## 1. Get it
+
+Clone this repo:
+
+```
+git clone https://github.com/Gabriellji/RAMP-Recruitment-Advancement-Motivation-of-People.git
+````
+## 2. Install the dependencies
+
 Front-End
 ```bash
-$ npm i
+$ npm install
 $ npm start
 ```
 Back-End
 ```bash
 $ cd server
-$ npm i
+$ npm install
 $ npm start
 ```
+## 3. Create and edit the `.env` file
+
+This application uses [dotenv](https://www.npmjs.com/package/dotenv), which allows to load variables from a specific file: `.env`. This is where sensitive data, such as database settings, JWT secret key, API keys, etc. are stored.
+
+This file is **not** provided here, because it should **never** be committed! However, the `.env.sample` file will help create you quickly.
+
+First, **copy it** as `.env`:
+
+```
+cp .env.sample .env
+```
+
+Second, **edit** `.env`. **You have to replace all the values with your own keys.
 ## Purpose
 #### Accenture case study: 
 Most of us at Accenture have been working from home due to the pandemic. Working on projects while managing your household has been a juggling act for all of us. 
