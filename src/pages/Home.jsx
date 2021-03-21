@@ -48,7 +48,7 @@ export const Home = () => {
     case 'NOT_PASSED':
       setLength('1');
       break;
-    default: setLength(1);
+    default: setLength('1');
       break;
     }
   };
