@@ -38,8 +38,10 @@ The kids make surprise visits to your room during an important client call. Your
 From time-management, to fitness, to mental health, virtual meetups & games etc. In this new way of working, we would like to give you, the hackers, the opportunity to think of ways to improve the WFH experience for the hundreds of thousands of people like you & us who are embarking on the journey to the future of work.
 
 ### Hacking-from-Home
-Our goal is to enhance applicants UX to a company, RAMP is designed with a minimal, easy to use UI, all users can understand exactly in which step of the application process they are at the moment, and also know what to do next.
+Our goal is to enhance applicants's UX in the process of apply to a company, RAMP is designed with a minimal, easy to use UI, all users can understand exactly in which step of the application process they are at the moment, and also know what to do next.
 
+### MVP
+We reach our mvp for STARTHack, but RAMP, can evolve and became a b2b product for companies, recruiters can easily manage the applicants from the admin UI. Send message (sms, email or whatsapp) to applicants thank to twilio integrated service.
 
 # :microscope: About the code
 The main frameworks and technologies used to build our Project are the following:
