@@ -19,14 +19,14 @@ RAMP</h1>
 
 **Follow the instructions below!**
 
-## 1. Get it
+### 1. Get it
 
 Clone this repo:
 
 ```
 git clone https://github.com/Gabriellji/RAMP-Recruitment-Advancement-Motivation-of-People.git
 ````
-## 2. Install the dependencies
+### 2. Install the dependencies
 
 Front-End
 ```bash
@@ -39,11 +39,11 @@ $ cd server
 $ npm install
 $ npm start
 ```
-## 3. Create and edit the `.env` file
+### 3. Create and edit the `.env` file
 
 This application uses [dotenv](https://www.npmjs.com/package/dotenv), which allows to load variables from a specific file: `.env`. This is where sensitive data, such as database settings, JWT secret key, API keys, etc. are stored.
 
-This file is **not** provided here, because it should **never** be committed! However, the `.env.sample` file will help create you quickly.
+This file is **not** provided here, because it should **never** be committed! However, the `example.env` file will help create you quickly.
 
 First, **copy it** as `.env`:
 
@@ -51,7 +51,18 @@ First, **copy it** as `.env`:
 cp .env.sample .env
 ```
 
-Second, **edit** `.env`. **You have to replace all the values with your own keys.
+Second, **edit** `.env`. You have to replace all the values with your own keys.
+
+### 4. Create an account sid in Twilio
+
+You need WhatsUp API
+
+### 5. Configure the gmail to less secure for sending email through gmail account
+Turn on the less secure app from this link https://myaccount.google.com/lesssecureapps
+
+### 6. Enjoy =)
+
+
 ## Purpose
 #### Accenture case study: 
 Most of us at Accenture have been working from home due to the pandemic. Working on projects while managing your household has been a juggling act for all of us. 
