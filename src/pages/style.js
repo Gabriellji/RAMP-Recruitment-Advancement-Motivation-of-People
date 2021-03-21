@@ -238,8 +238,54 @@ const Dot = styled.div`
   height: 12px;
   border-radius: 50%;
 `;
+const DateWrapper = styled.div`
+  cursor: pointer;
+  position: relative;
+  height: 40px;
+  
+  > div {
+    height: 100%;
+  }
+  .react-calendar {
+    width:320px;
+    position: absolute;
+    top: -45px;
+    left: -20px;
+  }
+  .react-daterange-picker {
+    height: 100%;
+    width: 250px;
+    
+    .react-daterange-picker__wrapper {
+      display: none
+    }
+    
+    .react-calendar__month-view__days__day--neighboringMonth {
+      color: rgb(117, 117, 117)
+    }
+
+    .react-calendar__tile--active {
+      font-weight: bold;
+        &:enabled:focus, &:hover {
+          font-weight: normal;
+        }
+        &:enabled:focus:before {
+          content: "";
+          border-radius: 25px;
+        }
+    }
+ 
+    .react-calendar__navigation {
+      button {
+        min-width: 44px;
+        background: none;
+        font-size: 15px;
+      }
+    }
+  }
+`;
 
 export {
   // eslint-disable-next-line
-  StyledLogin, ProfileWrapper, ProfileForm, LabelWrapper, SpinnerWrapper, StyledHeader, StyledSection, StyledInputSection, ApplicationWrapper, SecondApplicationWrapper, Dot,
+  StyledLogin, ProfileWrapper, ProfileForm, LabelWrapper, SpinnerWrapper, StyledHeader, StyledSection, StyledInputSection, ApplicationWrapper, SecondApplicationWrapper, Dot, DateWrapper
 };
