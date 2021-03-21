@@ -6,8 +6,7 @@
 <br />
   <h1 align="center">
 RAMP</h1>
-<h3 align="center">Recruitment Advancement Motivation of People
-Private</h3>
+<h3 align="center">Recruitment Advancement Motivation of People</h3>
 <br />
 
   <p align="center">
