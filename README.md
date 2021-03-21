@@ -16,9 +16,7 @@ Private</h3>
     </i>
     <br />
     <br />
-    <a href="#">View Demo</a>
-    ·
-    <a href="https://github.com/Gabriellji/RAMP-Recruitment-Advancement-Motivation-of-People#who-are-we">Contact</a>  
+    <a href="#">View Demo</a> 
 </p>
 </br>
 
@@ -40,4 +38,9 @@ The main frameworks and technologies used to build our Project are the following
 ### Who are we?
 We are [Yauheniya](https://www.linkedin.com/in/evgeniya-gabrikova/), [Jacopo](https://www.linkedin.com/in/jacopo-luri-1111081a2/),
 [Mancini](https://www.linkedin.com/in/mancia08/), fresh graduated from ["Wild Code School"](https://www.wildcodeschool.com/en-GB/trainings/web-developer-full-time) Bootcamp where we learned React and Node JS.
+
+### LinkedIn profiles
+- [Habrykava Yauheniya](https://www.linkedin.com/in/evgeniya-gabrikova/)
+- [Luri Jacopo](https://www.linkedin.com/in/jacopo-luri-1111081a2/)
+- [Mancini](https://www.linkedin.com/in/mancia08/)
 
