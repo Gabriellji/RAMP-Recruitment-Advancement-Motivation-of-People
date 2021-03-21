@@ -14,62 +14,18 @@ const StyledLogin = styled.form`
   justify-content: space-between;
   box-shadow: 11px 11px 10px 0px rgba(100, 100, 100, 0.8);
 
-    p {
-      font-size: 24px;
-      font-weight: bold;
-    }
-
-    p:nth-child(2) {
-      font-size: 18px;
-      font-weight: normal;
-    }
-
-    input, button {
-      font-size: 18px;
-      line-height: 24px;
-      border-radius: ${theme.spacer.single};
-      border-color: ${theme.colors.purple};
-      padding: ${theme.spacer.two};
-      width: 33%;
-      text-align: center;
-    }
-
-    input {
-      box-shadow: inset 3px 3px 5px 0px rgba(100, 100, 100, 0.8);
-      ::placeholder {
-        color: ${theme.colors.grey};
-      }
-    }
-
-    button {
-      color: ${theme.colors.purple};
-      background-color: ${theme.colors.light};
-      cursor: pointer;
-      transition: all 500ms;
-      box-shadow: 3px 3px 5px 0px rgba(100, 100, 100, 0.8);
-
-      :hover{
-        color: ${theme.colors.light};
-        background-color: ${theme.colors.purple};
-        border-color: ${theme.colors.light};
-      }
-    }
-`;
-
-const ProfileWrapper = styled.section`
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-
   p {
-    font-size: 30px;
+    font-size: 24px;
     font-weight: bold;
   }
 
-  input, button {
+  p:nth-child(2) {
+    font-size: 18px;
+    font-weight: normal;
+  }
+
+  input,
+  button {
     font-size: 18px;
     line-height: 24px;
     border-radius: ${theme.spacer.single};
@@ -93,7 +49,53 @@ const ProfileWrapper = styled.section`
     transition: all 500ms;
     box-shadow: 3px 3px 5px 0px rgba(100, 100, 100, 0.8);
 
-    :hover{
+    :hover {
+      color: ${theme.colors.light};
+      background-color: ${theme.colors.purple};
+      border-color: ${theme.colors.light};
+    }
+  }
+`;
+
+const ProfileWrapper = styled.section`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  p {
+    font-size: 30px;
+    font-weight: bold;
+  }
+
+  input,
+  button {
+    font-size: 18px;
+    line-height: 24px;
+    border-radius: ${theme.spacer.single};
+    border-color: ${theme.colors.purple};
+    padding: ${theme.spacer.two};
+    width: 33%;
+    text-align: center;
+  }
+
+  input {
+    box-shadow: inset 3px 3px 5px 0px rgba(100, 100, 100, 0.8);
+    ::placeholder {
+      color: ${theme.colors.grey};
+    }
+  }
+
+  button {
+    color: ${theme.colors.purple};
+    background-color: ${theme.colors.light};
+    cursor: pointer;
+    transition: all 500ms;
+    box-shadow: 3px 3px 5px 0px rgba(100, 100, 100, 0.8);
+
+    :hover {
       color: ${theme.colors.light};
       background-color: ${theme.colors.purple};
       border-color: ${theme.colors.light};
@@ -135,7 +137,7 @@ const SpinnerWrapper = styled.section`
 const StyledHeader = styled.header`
   width: 100%;
   padding: ${theme.spacer.double};
-  
+
   p {
     font-size: 30px;
     font-weight: bold;
@@ -150,7 +152,7 @@ const StyledSection = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  
+
   p {
     font-size: 18px;
     margin-bottom: ${theme.spacer.double};
@@ -171,7 +173,8 @@ const StyledInputSection = styled.section`
   flex-direction: column;
   gap: ${theme.spacer.double};
 
-  input, button {
+  input,
+  button {
     font-size: 18px;
     line-height: 24px;
     border-radius: ${theme.spacer.single};
@@ -195,7 +198,7 @@ const StyledInputSection = styled.section`
     transition: all 500ms;
     box-shadow: 3px 3px 5px 0px rgba(100, 100, 100, 0.8);
 
-    :hover{
+    :hover {
       color: ${theme.colors.light};
       background-color: ${theme.colors.purple};
       border-color: ${theme.colors.light};
