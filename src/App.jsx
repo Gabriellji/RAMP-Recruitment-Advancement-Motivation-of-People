@@ -31,10 +31,10 @@ const App = () => {
           <MainWrapper>
             <ContentWrapper>
               <Switch>
-                <Route exact path="/home" render={() => <Home />} />
-                <Route exact path="/profile" render={() => <Profile />} />
+                <Route exact path="/" render={() => <Home />} />
+                <Route path="/home" render={() => <Home />} />
+                <Route path="/profile" render={() => <Profile />} />
                 <Route
-                  exact
                   path="/my_application"
                   render={() => <Application />}
                 />

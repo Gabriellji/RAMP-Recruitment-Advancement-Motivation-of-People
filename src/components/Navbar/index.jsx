@@ -14,6 +14,47 @@ export const Navbar = () => {
   const [userId, setUserId] = useState('');
   const [loaded, setLoaded] = useState(false);
   const [fullName, setFullName] = useState('');
+  const [status, setStatus] = useState('');
+  const [length, setLength] = useState('');
+
+  // func
+
+  const handleLength = (myStatus) => {
+    switch (myStatus) {
+    case '':
+      setLength('1');
+      break;
+    case 'TI_TO_ORGANIZE':
+      setLength('2');
+      break;
+    case 'TI_ORGANIZED':
+      setLength('2');
+      break;
+    case 'TI_FINISHED':
+      setLength('2');
+      break;
+    case 'TI_PASSED':
+      setLength('2');
+      break;
+    case 'TT_ASSIGNED':
+      setLength('2'); /* here */
+      break;
+    case 'TT_COMPLETED':
+      setLength('2');
+      break;
+    case 'TT_NOT_PASSED':
+      setLength('2');
+      break;
+    case 'PASSED':
+      setLength('3');
+      break;
+    case 'NOT_PASSED':
+      setLength('1');
+      break;
+    default: setLength(1);
+      break;
+    }
+  };
 
   // useEffect
   useEffect(async () => {
@@ -54,8 +95,26 @@ export const Navbar = () => {
           });
         }
       });
+    await fetch(`http://localhost:5000/status/${userId}`, {
+      method: 'GET',
+      headers: new Headers({
+        'x-auth-token': token,
+        'Content-Type': 'application/json',
+      }),
+    })
+      .then((res) => {
+        if (res.status === 200) {
+          res.json().then((data) => {
+            setStatus(data.status);
+          });
+        }
+      });
     setLoaded(true);
   }, [userId]);
+
+  useEffect(() => {
+    handleLength(status);
+  }, [status]);
 
   return (
     <>
@@ -79,8 +138,12 @@ export const Navbar = () => {
               <hr />
               <LinkElem to="/my_application">MY APPLICATION</LinkElem>
               <hr />
-              <LinkElem to="/tech">TECH TASK</LinkElem>
-              <hr />
+              {length === '2' && (
+                <>
+                  <LinkElem to="/tech">TECH TASK</LinkElem>
+                  <hr />
+                </>
+              )}
             </StyledNav>
             <StyledNavFooter>
               <img src="https://www.infosec.news/wp-content/uploads/2020/09/MarioRossi-1.jpg" alt="my profile" />
