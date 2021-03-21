@@ -15,9 +15,9 @@ import bgVideo from './Video/Particle - 5187.mp4';
 const App = () => {
   const { isLogged } = useContext(Context);
 
-  useEffect(() => {
-    console.log('placeholder');
-  }, []);
+  // useEffect(() => {
+  //   console.log('placeholder');
+  // }, []);
 
   return (
     <>

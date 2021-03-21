@@ -1,8 +1,13 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { Context } from '../context';
-import { Text } from '../components/atoms';
+import { Text, Spinner } from '../components/atoms';
 
-import { ApplicationWrapper, SecondApplicationWrapper, Dot } from './style';
+import {
+  ApplicationWrapper,
+  SecondApplicationWrapper,
+  Dot,
+  SpinnerWrapper,
+} from './style';
 
 // initial data
 const initialData = [
@@ -30,6 +35,10 @@ export const Application = () => {
 
   // func
   const handleLength = (sta) => {
+    // console.log('........', length);
+    const test = '';
+    // console.log('....status', sta);
+    // console.log('........status', sta);
     switch (sta) {
     case '':
       setLength(1);
@@ -61,7 +70,8 @@ export const Application = () => {
     case 'NOT_PASSED':
       setLength(1);
       break;
-    default: setLength(1);
+    default:
+      setLength(1);
       break;
     }
   };
@@ -113,15 +123,17 @@ export const Application = () => {
     <ApplicationWrapper>
       {loaded ? (
         <>
-          {dataToDisplay.map((topass, index) => (
+          {dataToDisplay.map((toPass, index) => (
             <SecondApplicationWrapper selected={index < length}>
               <Dot />
-              <Text text={topass} />
+              <Text text={toPass} />
             </SecondApplicationWrapper>
           ))}
         </>
       ) : (
-        <p>spinner</p>
+        <SpinnerWrapper>
+          <Spinner />
+        </SpinnerWrapper>
       )}
     </ApplicationWrapper>
   );
