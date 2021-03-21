@@ -76,7 +76,7 @@ export const Profile = () => {
               'Content-Type': 'application/json',
             }),
             body: JSON.stringify({
-              status: 'TI_TO_ORGANIZE',
+              status: 'TI_ORGANIZED',
             }),
           });
           setLoaded(true);

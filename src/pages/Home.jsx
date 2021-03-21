@@ -1,5 +1,6 @@
 import React, { useContext, useState, useEffect } from 'react';
-import { Button } from '../components/atoms';
+import DateRangePicker from '@wojtekmaj/react-daterange-picker';
+import { Button, Text, Title } from '../components/atoms';
 import { Context } from '../context';
 
 export const Home = () => {
@@ -49,6 +50,10 @@ export const Home = () => {
     }
   };
 
+  const selectDate = (e) => {
+    console.log(e);
+  };
+
   // useeffect
   useEffect(async () => {
     if (token) {
@@ -90,7 +95,6 @@ export const Home = () => {
   }, [userId]);
 
   useEffect(() => {
-    console.log('....................', typeof status);
     handleLength(status);
   }, [status]);
 
@@ -101,25 +105,44 @@ export const Home = () => {
       {length === '1'
       && (
         <>
-          <h3>You have passed the first selection and now is time to move on</h3>
-          <p>1.update your profile, i need mmore personal data from you</p>
-          <p>Apply for a motivational interview with me from the agenda below</p>
-          <p>AGEWNDA</p>
+          <Title
+            text="You have passed the first selection and now is time to move on"
+          />
+          <Text
+            text="1.update your profile, i need mmore personal data from you"
+          />
+          <Text
+            text="Apply for a motivational interview with me from the agenda below"
+          />
+          {/* <DateRangePicker
+            format="dd/MM/yyyy"
+            onChange={(e) => selectDate(e)}
+          /> */}
         </>
       )}
       {length === '2'
       && (
         <>
-          <h3>You have passed the motivational interview and nime is time to move on</h3>
-          <p>inside the challenge section you will find all the instructions</p>
+          <Title
+            text="You have passed the motivational interview and nime is time to move on"
+          />
+          <Text
+            text="inside the challenge section you will find all the instructions"
+          />
         </>
       )}
       {length === '3'
       && (
         <>
-          <h3>Congratulations, accenture wants your talentn</h3>
-          <p>Download the contract proposal</p>
-          <p>Sign the contract and upload it</p>
+          <Title
+            text="Congratulations, accenture wants your talentn"
+          />
+          <Text
+            text="Download the contract proposal"
+          />
+          <Text
+            text="Sign the contract and upload it"
+          />
           <div>
             <Button
               text="Download contract proposal"

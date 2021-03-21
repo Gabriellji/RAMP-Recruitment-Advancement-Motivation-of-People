@@ -106,7 +106,7 @@ export const Application = () => {
     setLoaded(true);
   }, [userId]);
   useEffect(() => {
-    handleLength(status);
+    handleLength(status); p;
   }, [status]);
   return (
     <ApplicationWrapper>
