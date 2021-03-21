@@ -14,6 +14,7 @@ export const Navbar = () => {
   const [userId, setUserId] = useState('');
   const [loaded, setLoaded] = useState(false);
   const [fullName, setFullName] = useState('');
+  const [status, setStatus] = useState('');
 
   // useEffect
   useEffect(async () => {
@@ -54,8 +55,26 @@ export const Navbar = () => {
           });
         }
       });
+    await fetch(`http://localhost:5000/status/${userId}`, {
+      method: 'GET',
+      headers: new Headers({
+        'x-auth-token': token,
+        'Content-Type': 'application/json',
+      }),
+    })
+      .then((res) => {
+        if (res.status === 200) {
+          res.json().then((data) => {
+            setStatus(data.status);
+          });
+        }
+      });
     setLoaded(true);
   }, [userId]);
+
+  useState(() => {
+
+  }, [status]);
 
   return (
     <>
