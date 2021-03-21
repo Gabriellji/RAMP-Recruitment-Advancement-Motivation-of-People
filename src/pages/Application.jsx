@@ -3,7 +3,10 @@ import { Context } from '../context';
 import { Text, Spinner } from '../components/atoms';
 
 import {
-  ApplicationWrapper, SecondApplicationWrapper, Dot, SpinnerWrapper,
+  ApplicationWrapper,
+  SecondApplicationWrapper,
+  Dot,
+  SpinnerWrapper,
 } from './style';
 
 // initial data
@@ -60,7 +63,8 @@ export const Application = () => {
     case 'NOT_PASSED':
       setLength(4);
       break;
-    default: setLength(1);
+    default:
+      setLength(1);
       break;
     }
   };
@@ -112,15 +116,17 @@ export const Application = () => {
     <ApplicationWrapper>
       {loaded ? (
         <>
-          {dataToDisplay.map((topass, index) => (
+          {dataToDisplay.map((toPass, index) => (
             <SecondApplicationWrapper selected={index < length}>
               <Dot />
-              <Text text={topass} />
+              <Text text={toPass} />
             </SecondApplicationWrapper>
           ))}
         </>
       ) : (
-        <p>spinner</p>
+        <SpinnerWrapper>
+          <Spinner />
+        </SpinnerWrapper>
       )}
     </ApplicationWrapper>
   );
