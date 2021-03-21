@@ -4,6 +4,9 @@ import { Button, Text, Title } from '../components/atoms';
 import { Context } from '../context';
 import { DateWrapper } from './style';
 
+// images
+import logo from '../Images/ramplogo.jpg';
+
 export const Home = () => {
   // context
   const { token } = useContext(Context);
@@ -103,70 +106,74 @@ export const Home = () => {
 
   return (
     <>
-      <p>logo here</p>
+      <header>
+        <img src={logo} alt="RAMP Logo" />
+        <span>BY</span>
+        <img src="https://loghi-famosi.com/wp-content/uploads/2020/06/Accenture-Logo-650x366.png" alt="RAMP Logo" />
+      </header>
       <h1>Hello and welcome to RAMP Recruitmand Advancement Modivational of People</h1>
       {length === '1'
-      && (
-        <>
-          <Title
-            text="You have passed the first selection and now is time to move on"
-          />
-          <Text
-            text="1.update your profile, i need mmore personal data from you"
-          />
-          <Text
-            text="Apply for a motivational interview with me from the agenda below"
-          />
-          s
-          <Button
-            text="Choose date"
-            action={() => setIsOpen(!isOpen)}
-          />
-          <DateWrapper>
-            <DateRangePicker
-              format="dd/MM/yyyy"
-              onChange={(e) => setDate(e)}
-              value={date}
-              isOpen={isOpen}
+        && (
+          <>
+            <Title
+              text="You have passed the first selection and now is time to move on"
             />
-          </DateWrapper>
-        </>
-      )}
+            <Text
+              text="1.update your profile, i need mmore personal data from you"
+            />
+            <Text
+              text="Apply for a motivational interview with me from the agenda below"
+            />
+
+            <Button
+              text="Choose date"
+              action={() => setIsOpen(!isOpen)}
+            />
+            <DateWrapper>
+              <DateRangePicker
+                format="dd/MM/yyyy"
+                onChange={(e) => setDate(e)}
+                value={date}
+                isOpen={isOpen}
+              />
+            </DateWrapper>
+          </>
+        )}
       {length === '2'
-      && (
-        <>
-          <Title
-            text="You have passed the motivational interview and nime is time to move on"
-          />
-          <Text
-            text="inside the challenge section you will find all the instructions"
-          />
-        </>
-      )}
+        && (
+          <>
+            <Title
+              text="You have passed the motivational interview and nime is time to move on"
+            />
+            <Text
+              text="inside the challenge section you will find all the instructions"
+            />
+          </>
+        )}
       {length === '3'
-      && (
-        <>
-          <Title
-            text="Congratulations, accenture wants your talentn"
-          />
-          <Text
-            text="Download the contract proposal"
-          />
-          <Text
-            text="Sign the contract and upload it"
-          />
-          <div>
-            <Button
-              text="Download contract proposal"
-              action={() => console.log('download')}
+        && (
+          <>
+            <Title
+              text="Congratulations, accenture wants your talentn"
             />
-            <Button
-              test="Upload signed contract"
-              action={() => console.log('upload')}
+            <Text
+              text="Download the contract proposal"
             />
-          </div>
-        </>
-      )}
+            <Text
+              text="Sign the contract and upload it"
+            />
+            <div>
+              <Button
+                text="Download contract proposal"
+                action={() => console.log('download')}
+              />
+              <Button
+                test="Upload signed contract"
+                action={() => console.log('upload')}
+              />
+            </div>
+          </>
+        )}
     </>
   );
 };

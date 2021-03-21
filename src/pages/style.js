@@ -285,6 +285,10 @@ const DateWrapper = styled.div`
   }
 `;
 
+const HomeHeader = styled.header`
+  
+`;
+
 export {
   // eslint-disable-next-line
   StyledLogin, ProfileWrapper, ProfileForm, LabelWrapper, SpinnerWrapper, StyledHeader, StyledSection, StyledInputSection, ApplicationWrapper, SecondApplicationWrapper, Dot, DateWrapper
