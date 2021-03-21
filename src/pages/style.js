@@ -206,34 +206,40 @@ const StyledInputSection = styled.section`
   }
 `;
 
-const ApplicationWrapper = styled.div`
+const ApplicationWrapper = styled.main`
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  background-color: red;
+  justify-content: space-evenly;
+  align-items: center;
 `;
 
-const SecondApplicationWrapper = styled.div`
+const SecondApplicationWrapper = styled.section`
+  width: 50%;
   display: flex;
-  background-color: green;
-  background-color: ${(p) => p.selected && 'red'};
+  align-items: baseline;
+  gap: ${theme.spacer.quad};
+  color: ${theme.colors.dark};
+  color: ${(p) => p.selected && theme.colors.purple};
+
+  div {
+    background-color: ${theme.colors.dark};
+    background-color: ${(p) => p.selected && theme.colors.purple};
+  }
+
+  p {
+    font-size: 24px;
+  }
 `;
+
 const Dot = styled.div`
-  width: 8px;
-  height: 8px;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
-  background-color: red;
 `;
 
 export {
-  StyledLogin,
-  ProfileWrapper,
-  ProfileForm,
-  LabelWrapper,
-  SpinnerWrapper,
-  StyledHeader,
-  StyledSection,
-  StyledInputSection,
-  ApplicationWrapper,
-  SecondApplicationWrapper,
-  Dot,
+  // eslint-disable-next-line
+  StyledLogin, ProfileWrapper, ProfileForm, LabelWrapper, SpinnerWrapper, StyledHeader, StyledSection, StyledInputSection, ApplicationWrapper, SecondApplicationWrapper, Dot,
 };

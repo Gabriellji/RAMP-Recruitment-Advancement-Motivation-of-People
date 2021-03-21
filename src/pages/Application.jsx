@@ -1,8 +1,10 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { Context } from '../context';
-import { Text } from '../components/atoms';
+import { Text, Spinner } from '../components/atoms';
 
-import { ApplicationWrapper, SecondApplicationWrapper, Dot } from './style';
+import {
+  ApplicationWrapper, SecondApplicationWrapper, Dot, SpinnerWrapper,
+} from './style';
 
 // initial data
 const initialData = [
