@@ -2,6 +2,7 @@ import React, { useContext, useState, useEffect } from 'react';
 import DateRangePicker from '@wojtekmaj/react-daterange-picker';
 import { Button, Text, Title } from '../components/atoms';
 import { Context } from '../context';
+import { DateWrapper } from './style';
 
 export const Home = () => {
   // context
@@ -12,6 +13,8 @@ export const Home = () => {
   const [loaded, setLoaded] = useState(false);
   const [status, setStatus] = useState('');
   const [length, setLength] = useState('1');
+  const [date, setDate] = useState(null);
+  const [isOpen, setIsOpen] = useState(false);
 
   const handleLength = (myStatus) => {
     switch (myStatus) {
@@ -114,10 +117,19 @@ export const Home = () => {
           <Text
             text="Apply for a motivational interview with me from the agenda below"
           />
-          {/* <DateRangePicker
-            format="dd/MM/yyyy"
-            onChange={(e) => selectDate(e)}
-          /> */}
+          s
+          <Button
+            text="Choose date"
+            action={() => setIsOpen(!isOpen)}
+          />
+          <DateWrapper>
+            <DateRangePicker
+              format="dd/MM/yyyy"
+              onChange={(e) => setDate(e)}
+              value={date}
+              isOpen={isOpen}
+            />
+          </DateWrapper>
         </>
       )}
       {length === '2'
