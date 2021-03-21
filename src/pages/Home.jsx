@@ -1,17 +1,6 @@
 import React, { useContext, useState, useEffect } from 'react';
+import { Button } from '../components/atoms';
 import { Context } from '../context';
-
-const initialData = [
-  'Pass first selection',
-  'Tech interview to organize',
-  'Tech interview organized',
-  'Tech interview passed',
-  'tech task assigned',
-  'Tech task started',
-  'Tech task completed',
-  'Tech task passed',
-  'You need to sign a contract now',
-];
 
 export const Home = () => {
   // context
@@ -21,39 +10,39 @@ export const Home = () => {
   const [userId, setUserid] = useState('');
   const [loaded, setLoaded] = useState(false);
   const [status, setStatus] = useState('');
-  const [length, setLength] = useState('');
+  const [length, setLength] = useState('1');
 
   const handleLength = (myStatus) => {
     switch (myStatus) {
     case '':
-      setLength(1);
+      setLength('1');
       break;
     case 'TI_TO_ORGANIZE':
-      setLength(2);
+      setLength('2');
       break;
     case 'TI_ORGANIZED':
-      setLength(3);
+      setLength('2');
       break;
     case 'TI_FINISHED':
-      setLength(3);
+      setLength('2');
       break;
     case 'TI_PASSED':
-      setLength(4);
+      setLength('2');
       break;
     case 'TT_ASSIGNED':
-      setLength(5); /* here */
+      setLength('2'); /* here */
       break;
     case 'TT_COMPLETED':
-      setLength(5);
+      setLength('2');
       break;
     case 'TT_NOT_PASSED':
-      setLength(5);
+      setLength('2');
       break;
     case 'PASSED':
-      setLength(1);
+      setLength('3');
       break;
     case 'NOT_PASSED':
-      setLength(1);
+      setLength('1');
       break;
     default: setLength(1);
       break;
@@ -102,17 +91,48 @@ export const Home = () => {
 
   useEffect(() => {
     console.log('....................', typeof status);
-    // func that change switch here
     handleLength(status);
   }, [status]);
 
   return (
-    <h1>
-      {
-        initialData[length]
-      }
-
-    </h1>
+    <>
+      <p>logo here</p>
+      <h1>Hello and welcome to RAMP Recruitmand Advancement Modivational of People</h1>
+      {length === '1'
+      && (
+        <>
+          <h3>You have passed the first selection and now is time to move on</h3>
+          <p>1.update your profile, i need mmore personal data from you</p>
+          <p>Apply for a motivational interview with me from the agenda below</p>
+          <p>AGEWNDA</p>
+        </>
+      )}
+      {length === '2'
+      && (
+        <>
+          <h3>You have passed the motivational interview and nime is time to move on</h3>
+          <p>inside the challenge section you will find all the instructions</p>
+        </>
+      )}
+      {length === '3'
+      && (
+        <>
+          <h3>Congratulations, accenture wants your talentn</h3>
+          <p>Download the contract proposal</p>
+          <p>Sign the contract and upload it</p>
+          <div>
+            <Button
+              text="Download contract proposal"
+              action={() => console.log('download')}
+            />
+            <Button
+              test="Upload signed contract"
+              action={() => console.log('upload')}
+            />
+          </div>
+        </>
+      )}
+    </>
   );
 };
 
